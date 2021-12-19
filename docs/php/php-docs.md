@@ -300,10 +300,6 @@ hold information about
 
 
 
-
-
-
-
 ### Regex
 ```php
 	preg_match($pattern, $str) // 1 | 0
@@ -314,4 +310,196 @@ hold information about
 
 	
 
+```
+
+
+
+### Form handling
+```php
+	htmlspecialchars('html code here'); // print save html
+
+	trim();
+	empty(var);
+
+	stripslashes(str);
+
+	filter_var($variable, FILTER-VALIDATE-EMAIL);
+
+```
+
+
+
+### Date and time
+```php
+	
+	date('format', 'time stamp') 
+	/**
+	 * Format ====> 
+	 	d 'day', m 'month', y 'year',
+	 	l 'day of the week', H 'hours 24', h 'hours 12',
+	    i 'minutes', s 'second', a 'am or pm'
+	 * 
+	 *@example 
+	 * date('y-m-d') // return the current date|time
+	 * 
+	 * */
+
+
+	date_default_timezone_set(timezone_identifier);
+	date_default_timezone_get();
+
+	$date = mktime('hour, minutes, second, month, day, year');
+
+	date('y', $date); // get the year from spesific date using date()
+
+
+	//Parse about any English textual datetime description into a Unix timestamp
+	strtotime(); 
+	
+```
+
+
+
+### Include files
+```php
+	require 'footer.php'; // script will stop if there any error
+
+	include 'footer.php'; // if there any error will only produce a warning
+
+```
+
+
+
+### File handling
+```php
+	readfile('filename.txt');
+
+	$file = fopen("filename.txt", 'mode')
+	/**
+	 * fopen() will create new file if it doesn't exist.
+	 * 
+	 * Mode ====> 
+	 	r  'read only'
+	 	w  'write only remove old content'
+	 	a  'write only add at the last'
+	 	x  'new file write only'
+	 	r+ 'read/write'
+	 	w+ 'read/write remove old content'
+	 	a+ 'read/write add at the last'
+	 	x+ 'read/write new file'
+	 * */
+
+
+	fread($file, filesize('file.txt'));
+
+	fclose($file); // important
+
+	fgets($file); // used to read single line after call it pointer move to next line.
+
+	feof($file); // check if the end of the file has been reached
+
+	fwrite($file, 'new text');
+```
+
+
+
+
+### Cookies
+
+```php
+	setcookie('cookie-name');
+	/*
+
+		setcookie(name, value, expire  'time to expire', path, domain, secure, httponly)
+
+		// must be call before <html>
+
+		// to delete cookies use the setcookie() with an expiration date in the past
+	*/
+
+	$_COOKIE['cookie-name'];
+```
+
+
+
+### Sessions
+
+```php
+	session_start() // must be the first thing in your document.
+
+	$_SESSION['color'] = 'green';
+	//session variables are not passed individually to each new page.
+
+	session_unset() // remove all session
+
+	session_destroy() // destroy the session
+```
+
+
+
+
+### Filter
+
+```php
+	filter_list()
+
+	filter_var($var, 'type of check')
+	/**
+	 * type of check ===>
+	 	FILTER_SANTIZE_STRING
+	 	FILTER_SANTIZE_EMAIL_URL
+	 	FILTER_SANTIZE_URL
+
+	 	FILTER_VALIDATE_INT
+	 	FILTER_VALIDATE_IP
+	 	FILTER_VALIDATE_EMAIL
+	 
+	 * */
+	
+```
+
+
+
+
+### Callback
+Php support callback function
+```php
+	array_map(function () {}, $list);
+```
+
+
+
+
+### Json
+
+```php
+	json_encode('value') // object|array to json
+
+	json_decode("{'name': 'json'}") // json to object|array
+	/**
+	 * return object by default
+	 * if you set second paramst to true it will return 'Array associative'
+	 * 
+	 *@example json_decode("{'name': 'json'}", true);
+	 * */
+```
+
+
+
+
+
+### Php Exceptions
+
+```php
+
+	throw new Exception('Error message');
+
+
+	try {
+		
+	} catch (Exception $e) {
+		
+	} finally {
+		
+	}
 ```
