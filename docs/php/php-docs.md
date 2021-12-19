@@ -500,6 +500,223 @@ Php support callback function
 	} catch (Exception $e) {
 		
 	} finally {
-		
+
 	}
 ```
+
+
+
+## OOP
+A class is a template for objects, and
+an object is an instance of a class.
+
+```php
+	/**
+	 * 
+	 */
+	class Fruit
+	{
+
+		public $name;
+
+		function __construct($name)
+		{
+			// code...
+			$this->name = $name;
+		}
+
+		public function set_name($name)
+		{
+			$this->name = $name;
+		}
+
+	}
+
+	$apple = new Fruit('Apple');
+
+	$apple->set_name('Red Apple');
+
+	$apple->name = 'Green Apple';
+
+
+	$apple instanceof Fruit // 0 | 1
+```
+
+### Destructor
+funtion will automatically called at the end of the script.
+
+```php
+	class Cars
+	{
+		function __destruct()
+	    {	
+	      echo 'done';
+	    }
+	}
+```
+
+
+### Access Modifiers
+
+```php
+	class Cars
+	{
+		public $name; // accessed from every where
+
+		protected $age;	// accessed whithin the class and by classes derived from that class.
+
+		private $number; // accessed within the class
+
+	}
+```
+
+
+
+### Inheritance
+```php
+	class Fruit {}
+	
+	class Strawberry extends Fruit {
+
+	}
+
+	final class Cars {} // prevent class inheritance to prevent method overriding
+```
+
+
+
+### Class constants
+
+use `self::` to access const variables.
+
+`::` called `scope resolution operator`
+
+```php
+	class Fruit {
+		const BYE_MESS = 'Bye bro';
+
+		public function byebye() 
+		{
+			echo self::BYE_MESS;
+		}
+	}
+```
+
+
+
+### Abstract Class
+Abstract classes and methods are when the parent class has a named method, but need its child `class(es)` to fill out the task.
+
+```php
+ 	abstract class Fruit {
+ 		abstract function set_name():string;
+ 	}
+```
+
+
+
+### Interfaces
+
+Allow you to specify what methods a class should implement.
+
+>	whene one or more classes use the same interface it is referred to as `polymorphism`
+
+```php
+ 	interface ChatInterface {
+ 		public function mess():string;
+ 	}
+
+ 	class Chat implements ChatInterface {}
+```
+
+
+
+### Traits
+Declare methods that can be used in multiple classes.
+
+- Can have methods or abstract method
+- Can have any access modifier `public` `private` `protected`
+
+```php
+ 	trait Auth {
+ 		public function mess():string;
+ 	}
+
+ 	class Chat {
+ 		use Auth;
+ 	}
+```
+
+
+
+### Static methods
+Static methods can be called directly,
+without creating an instance of the class.
+
+
+```php
+ 	class User {
+ 		public static function get_name () {}
+
+ 		public function get_names() {
+ 			self::get_name(); // access static method
+ 		}
+ 	}
+
+ 	User::get_name();
+
+
+ 	// access static method from child class.
+ 	class Admin extends User {
+ 		function sayHi() {
+ 			parent::get_name();
+ 		}
+ 	}
+```
+
+
+
+### Static Properties
+
+```php
+ 	class User {
+ 		public static $name = 'User Name here';
+
+ 		public function get_names() {
+ 			self::get_name(); // access static method
+ 		}
+ 	}
+
+ 	User::$name;
+```
+
+use `self::` to access static properties inside methods.
+use `parent::` if you want to access it in child class.
+
+
+
+### Name Spaces
+They allow for better oraganization by grouping classes
+that work together to perform a task.
+
+- They allow the same name to be used for more than one class.
+- A `namespace` must be the first things in the php file.
+
+```php
+ 	namespace Auth;
+
+ 	class Login {}
+```
+
+To access classes from outside a namespace
+the class needs to have the namespace attached to it.
+
+```php
+	$Login = new Auth\Login() // class inside Auth.
+```
+
+
+### php Iterables.
+Is any value which can be looped through with a foreach()
+
+
