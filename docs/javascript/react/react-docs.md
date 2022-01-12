@@ -484,3 +484,44 @@ we used it to share logic
 		}
 ```
 
+
+## React render notes
+
+![Image Title](react-render-phase.svg) 
+
+Rednder phsase
+1. Find all elements flagged for update.
+2. For each flogged components, covert jsx to react element and store the result.
+3. perform reconciliation `Diffrance between` old and new tree.
+4. Hand over the changes to the next phrase.
+
+### useState and useReducer
+- will not `re-render` if it the same value after the initial render. 
+- same value after `re-render` react will render that specific component one more time and then bails out from any subsequnt reders.
+
+
+**State Immutability 'object, array'**
+To `re-render` pass new referance. 
+
+
+**Avoide Un necessary render by**
+1. pass the child as a children prop ex`<Paren> <Child /> </Parent>`
+2. use `React.memo()` 
+
+
+### Same Element refernece
+- state change? will `re-render`
+- Props change? will not `re-render`
+
+### React.memo
+Parent Component `re-render` but the child need to be `un-render`
+if there no changes
+
+**Note**
+Don't use `React.memo` if you have children
+
+
+### Ways to cause a `re-render`
+- Component call useState or userReducer
+- If parent component `re-rendered`
+- Recat context change

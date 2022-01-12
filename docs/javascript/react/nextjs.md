@@ -382,7 +382,6 @@ like fallback:true but there isn't any loading indicator.
 ### Client-side data fetching
 use `SWR` react hooks for data fetching
 
-##
 
 ## Api Routes
 
@@ -609,7 +608,7 @@ help application that rely on a CMS
 		if(!session) {
 			return {
 				redirect: {
-					destination: "/api/auth/signin?callbackurl=http://localhost:3000/blog",
+					destination: "/api/auth/signin?callbackurl=http://localhost:3000/",
 					permanent: false,
 				},
 			}
