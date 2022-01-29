@@ -487,7 +487,7 @@ we used it to share logic
 
 ## React render notes
 
-![Image Title](react-render-phase.svg) 
+![Image Title](./react-render-phase.svg) 
 
 Rerender phase
 1. Find all elements flagged for update.
@@ -519,6 +519,8 @@ if there no changes
 
 **Note**
 Don't use `React.memo` if you have children
+
+
 
 
 ### Ways to cause a `re-render`

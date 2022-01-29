@@ -1,0 +1,1 @@
+const e={key:"v-176cbcc2",path:"/tools/c4-model.html",title:"C4 Model",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Notation",slug:"notation",children:[{level:3,title:"Notes",slug:"notes",children:[]}]}],filePathRelative:"tools/c4-model.md",git:{updatedTime:1643473403e3,contributors:[{name:"Naif",email:"nayef7138@gmail.com",commits:2}]}};export{e as data};

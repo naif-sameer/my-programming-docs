@@ -1,0 +1,1 @@
+const e={key:"v-f2091450",path:"/html/html-doc.html",title:"Html docs",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Head",slug:"head",children:[]},{level:2,title:"Body",slug:"body",children:[]}],filePathRelative:"html/html-doc.md",git:{updatedTime:1643473403e3,contributors:[{name:"Naif",email:"nayef7138@gmail.com",commits:2}]}};export{e as data};

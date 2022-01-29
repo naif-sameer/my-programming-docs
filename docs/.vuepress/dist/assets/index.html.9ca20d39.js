@@ -1,0 +1,1 @@
+const e={key:"v-d3edbba8",path:"/vscode/",title:"vscode api",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"vscode/index.md",git:{updatedTime:1643473403e3,contributors:[{name:"Naif",email:"nayef7138@gmail.com",commits:1}]}};export{e as data};
