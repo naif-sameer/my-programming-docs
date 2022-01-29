@@ -9,11 +9,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<meta name="viewport" content="width=device-width, intial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<meta name="author" content="naif sameer's page">
 
-	<meta name="description" content="this page about learing html and web design">
+	<meta name="description" content="this page about learning html and web design">
 
 	<title>
 		page title
@@ -36,7 +36,7 @@
 			this is p
 		</p>
 
-		<!-- unorder list -->
+		<!-- unordered list -->
 		<ul>
 			<li></li>
 		</ul>

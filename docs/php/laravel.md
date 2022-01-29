@@ -1,4 +1,4 @@
-# larvale docs
+# laravel docs
 
 ## install
 
@@ -23,7 +23,7 @@
 > Laravel's .env file contains configuration values. These values are then retrieved from various Laravel configuration files within the config directory using Laravel's `env` function.
 
 ```php
-	env('SERVER_NAMW', 'default value here')
+	env('SERVER_NAME', 'default value here')
 
 ```
 
@@ -45,12 +45,12 @@ print_r($id); # var or array to print it on the page;
 
 ```php
 
-Route::get('/', funciton() {
+Route::get('/', function() {
 })
 
 
 # route to send res
-Route::get('/users', funciton() {
+Route::get('/users', function() {
 
 	// blade templates 
 	return view('users');
@@ -58,7 +58,7 @@ Route::get('/users', funciton() {
 	// string
 	return 'users page ';
 
-	// laravel auto convert arry to json
+	// laravel auto convert array to json
 	return ['user 1', 'user 2'];
 
 	// res a json obj
@@ -80,7 +80,7 @@ Route::get('/home', [NameController::class, 'index']);
 Route::get('/home', 'App\Http\Controller\NameController@index')
 
 
-# ---------- old laravel syntax before 8 not woking anymore ------
+# ---------- old laravel syntax before 8 not working anymore ------
 
 Route::get('/home', 'HomeController@index');
 
@@ -290,7 +290,7 @@ class Uppercase implements Rule
 
 
 
-# valuidate funtion 
+# validate function 
 $request->validate([
 	name-> new Uppercase;
 ])
@@ -302,7 +302,7 @@ $request->validate([
 #### form requests
 
 ```bash
-php artisan make:request CreateVaildate
+php artisan make:request CreateValidate
 ```
 
 ```php 
@@ -349,7 +349,7 @@ public function index(CreateValidation $request) {
 public function index(Request $request)
 {
 	$request->validate([
-		'image'=> 'required|mimes:jpg,png,jpeg|max:5046' # max in kilobites
+		'image'=> 'required|mimes:jpg,png,jpeg|max:5046' # max in kilobits
 	])
 
 
@@ -362,7 +362,7 @@ public function index(Request $request)
 			->asStore()
 			->storePublickly()
 			->move()
-			->getClientOriginaName()
+			->getClientOriginalName()
 			->getClientMimeType()
 			->getSize()
 			->getError()
@@ -394,7 +394,7 @@ php artisan serve --port=8081
 php artisan make:controller NameController
 
 
-# to create methods automaticly
+# to create methods automatically
 php artisan make:controller NameController --resource
 
 
@@ -423,9 +423,9 @@ php artisan cache:clear
 
 php artisan auth:clear-resets
 
-php artisan key:genrate
+php artisan key:generate
 
-# create session magration file
+# create session migration file
 php artisan session:table
 
 
@@ -484,12 +484,12 @@ view('products.index');
 *parent*
 	<header /> 
 
-	@yiled('content')
+	@yield('content')
 
 	<footer />
 
 *child*
-	@include('layoust.file-name')
+	@include('layouts.file-name')
 
  	@section
 		<div> you content here </div>
@@ -512,7 +512,7 @@ view('products.index');
 <img src="{{ asset('images/icon-box.jpg') }}" />
 
 
-# if you need to secre the images use *storage* folder
+# if you need to secret the images use *storage* folder
 /**
 	php artisan storage:link
 
@@ -602,12 +602,12 @@ php artisan migrate:refresh
 php artisan migrate:status
  
 
-# you can quickly apply new schmea 
+# you can quickly apply new schema 
 php artisan migrate:fresh
 
 
-#create table [use make:model insted of this]
-php artisan make:migration create_propject_table
+#create table [use make:model instead of this]
+php artisan make:migration create_propjet_table
 
 
 # create new model with factory
@@ -617,7 +617,7 @@ php artisan make:model --factory File_name
 
 ```
 
-> *on the migration folder* up funtion mean to create the table
+> *on the migration folder* up function mean to create the table
 down() mean to clean what you do before.
 
 ```php
@@ -713,7 +713,7 @@ $post = DB::table('posts')
 	->get();
 
 
-#------------- wokring with the data methods ----------
+#------------- working with the data methods ----------
 
 
 	->insert([
@@ -736,14 +736,14 @@ DB::table('posts')->select('title')->get();
 
 
 ### Eloquent
-> why --> simplisity
+> why --> simplicity
 
 ```php
 
 # test.php model file
 
 class Test extends Model {
-	use HasFactroy;
+	use HasFactory;
 
 	protected $table = 'test';
 
@@ -784,7 +784,7 @@ class TestController extends Controller {
 					->firstOrFail();
 
 				
-				Test::chunk('amout of rows', funciton($cars) {
+				Test::chunk('amount of rows', function($cars) {
 						// code here
 				});
 	}
@@ -806,7 +806,7 @@ class TestController extends Controller {
 
 		## you need to add this line in your model file 
 		/***
-		 	protected $filelable = ['name']; 
+		 	protected $fileable = ['name']; 
 		 */
 
 		return redirect('/test');
@@ -881,7 +881,7 @@ public function up () {
 class Cars extends Model
 {
 	
-	public function carDodels()
+	public function carDowels()
 	{
 		return this->hasMany(CarModel::class);
 	}
@@ -906,7 +906,7 @@ class Cars extends Model
 ## Authentication & Authorization
 
 *Authentication*
-> Verrifying who someone is, and allowing them to act as that person in your sestem
+> Verbifying who someone is, and allowing them to act as that person in your system
 
 
 *Authorization*

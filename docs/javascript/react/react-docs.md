@@ -48,7 +48,7 @@ if you want to edit the state use `setState()`
 		}
 
 		function updateCounter() {
-			// update passed on preveiw state.
+			// update passed on preview state.
 			this.setState(
 				(prevState, props) =>
 				 	({count : prevState.count + 1})
@@ -59,7 +59,7 @@ if you want to edit the state use `setState()`
 
 **Notes**
 - Always use `setState` and never modify the state directly.
-- When you have to update state based on the previous state pass in a function insted of object.
+- When you have to update state based on the previous state pass in a function instead of object.
 
 
 ### Event Handling
@@ -96,7 +96,7 @@ if you want to edit the state use `setState()`
 
 
 ### List Rendering
-use `map()` to rednder list of item
+use `map()` to render list of item
 
 
 ```jsx
@@ -112,13 +112,13 @@ use `map()` to rednder list of item
 ```
 
 ### Lifecycle Methods
-1. **Mounting :** when an instance of a components is beging created and insearted into the `DOM`.
+1. **Mounting :** when an instance of a components is begins created and inserted into the `DOM`.
 
-2. **Updateing :** when a component is beging `re-rendered` as a result of changes to either its props or state.
+2. **Updating :** when a component is begins `re-rendered` as a result of changes to either its props or state.
 
-3. **Unmounting :** When a Component is beging removed from the `DOM`.
+3. **Unmounting :** When a Component is begins removed from the `DOM`.
 
-4. **Error handling :** When there is an error during rendering, in a lifecycle method, or in the contructor of any child component.
+4. **Error handling :** When there is an error during rendering, in a lifecycle method, or in the contractor of any child component.
 
 
 ### Fragment
@@ -139,7 +139,7 @@ you can use
 
 
 ### Pure Component in a class.
-Components will `be re-redndering` if one of its value change otherwise will not `good for performance`.
+Components will `be re-rendering` if one of its value change otherwise will not `good for performance`.
 
 **When use it never mutate the state**. Always return new object the reflects the new state.
 
@@ -162,7 +162,7 @@ use `memo`
 				<input ref={inputRef} />
 
 				<button onClick={ () => inputRef.focus()}>
-					focus theinput.
+					focus the input.
 				</button>
 			<div>
 	};
@@ -186,7 +186,7 @@ Ref forwarding is a technique for automatically passing a ref through a componen
 ```
 
 ### Portals
-render component ouside root div.
+render component outside root div.
 ```jsx
 	const PortalDemo = () => {
 
@@ -204,10 +204,10 @@ a class component that implements one or both of the lifecycle methods
 - `componentDidCatch` used to log the error information
 
 
-### Higher Oreder Components **HOC**.
+### Higher Order Components **HOC**.
 >	Used to share common functionality between components.
 
-A pattern where a function take a component as an argument and return new componet
+A pattern where a function take a component as an argument and return new component
 
 ```jsx
 	const withCounter = (Component, countValue = 0) => {
@@ -227,7 +227,7 @@ A pattern where a function take a component as an argument and return new compon
 ### Render Props
 _share common functionality_
 
-- The term `render prop` refers to a techinque for sharing code between react components using a prop. whose value is a function.
+- The term `render prop` refers to a technique for sharing code between react components using a prop. whose value is a function.
 
 ```jsx
 	
@@ -262,7 +262,7 @@ _share common functionality_
 
 
 ### Context
-Provides away to pass data through the component tree without having to pass props down manyually at every level.
+Provides away to pass data through the component tree without having to pass props down manually at every level.
 
 
 ```jsx
@@ -298,7 +298,7 @@ Provides away to pass data through the component tree without having to pass pro
 	}
 ```
 
-you should use `hooks` insted of this way.
+you should use `hooks` instead of this way.
 
 
 ## Hooks.
@@ -308,14 +308,14 @@ you should use `hooks` insted of this way.
 	const [value, setValue] = useState(1);
 	
 
-	setValue(30); // not safe if you wnat to update by old value.
+	setValue(30); // not safe if you want to update by old value.
 
 	setValue(prevState => prevState + 3); // safe
 ```
 
 
-When you use object or array. `useState` will not merge automaticly.
-isnted return new instance.
+When you use object or array. `useState` will not merge automatically.
+instead return new instance.
 ```jsx
 	const [list, setList] = useState([]);
 	
@@ -328,7 +328,7 @@ isnted return new instance.
 ### useEffect
 lets you perform side effects in function components.
 
-- It is a close replacement for `componentDidMount` `componentDidUpdate` `componentWillUnmout`
+- It is a close replacement for `componentDidMount` `componentDidUpdate` `componentWillUnmount`
 
 ```jsx
 	useEffect(() => {
@@ -337,7 +337,7 @@ lets you perform side effects in function components.
 		// used it to clean event from the dom or clearInterval() 
 		return () => {};
 	}, []);
-	// second param is a array its value for conditionaly run effect.
+	// second param is a array its value for conditionally run effect.
 	// if the values change useEffect will run again.	
 ```
 
@@ -354,7 +354,7 @@ lets you perform side effects in function components.
 
 
 ### useReducer
-Is A hook used for advanced state mangament
+Is A hook used for advanced state management
 
 ```jsx
 	
@@ -373,7 +373,7 @@ Is A hook used for advanced state mangament
 	};
 
 	function Counter (){
-		const [count, dispatch] = useReducer(reducer, initailState);
+		const [count, dispatch] = useReducer(reducer, initialState);
 
 		return <div>
 			{count}
@@ -385,7 +385,7 @@ Is A hook used for advanced state mangament
 	}
 ```
 
-if you use `useReducer` + `useContext` you can create global state managment.
+if you use `useReducer` + `useContext` you can create global state management.
 use this carefully.
 
 
@@ -394,7 +394,7 @@ use this carefully.
 | -------------	| -------------- | ----------------- |
 | Best for  	| Number, String, Boolean | Object, Array | 
 | number of state transitions | one or two | too many |
-| Related state trasnition | no | Yes |
+| Related state transition | no | Yes |
 
 
 ### useCallback
@@ -404,7 +404,7 @@ Is a hook that will return a memorized version of the callback function that onl
 	function User (){
 		const [age, setAge] = useState(20);
 
-		// callback will cashe the function
+		// callback will cashed the function
 		const incrementAge = useCallback(() => setAge(age + 1), [age]);
 
 		return <div> {username} </div>
@@ -413,7 +413,7 @@ Is a hook that will return a memorized version of the callback function that onl
 
 
 ### useMemo
-cashe the function return.
+cashed the function return.
 
 ```jsx
 	function User (){
@@ -439,15 +439,15 @@ cashe the function return.
 
 	// useRef with interval
 	function U() {
-		const intervlRef = useRef();
+		const intervalRef = useRef();
 
 		useEffect(() => {
-			intervlRef.current = setInteval();
+			intervalRef.current = setInterval();
 		})
 
 		// clear the interval
 		function clear() {
-			clearInterval(intervlRef.current);
+			clearInterval(intervalRef.current);
 		}
 
 	}
@@ -456,7 +456,7 @@ cashe the function return.
 
 ### Custom hooks
 we used it to share logic
->	Alternative to HOCs and rednder props
+>	Alternative to HOCs and rerender props
 
 
 **Notes** 
@@ -489,27 +489,27 @@ we used it to share logic
 
 ![Image Title](react-render-phase.svg) 
 
-Rednder phsase
+Rerender phase
 1. Find all elements flagged for update.
 2. For each flogged components, covert jsx to react element and store the result.
-3. perform reconciliation `Diffrance between` old and new tree.
+3. perform reconciliation `Difference between` old and new tree.
 4. Hand over the changes to the next phrase.
 
 ### useState and useReducer
 - will not `re-render` if it the same value after the initial render. 
-- same value after `re-render` react will render that specific component one more time and then bails out from any subsequnt reders.
+- same value after `re-render` react will render that specific component one more time and then bails out from any subsequent renders.
 
 
 **State Immutability 'object, array'**
-To `re-render` pass new referance. 
+To `re-render` pass new reference. 
 
 
-**Avoide Un necessary render by**
-1. pass the child as a children prop ex`<Paren> <Child /> </Parent>`
+**Avoid Un necessary render by**
+1. pass the child as a children prop ex`<Parent> <Child /> </Parent>`
 2. use `React.memo()` 
 
 
-### Same Element refernece
+### Same Element reference
 - state change? will `re-render`
 - Props change? will not `re-render`
 
@@ -524,4 +524,4 @@ Don't use `React.memo` if you have children
 ### Ways to cause a `re-render`
 - Component call useState or userReducer
 - If parent component `re-rendered`
-- Recat context change
+- React context change

@@ -3,10 +3,10 @@ The React framework for production.
 
 ## Basics
 
-insatll 
+install 
 ```bash
 	
-	# /. mean will add files to this currnt path without create new folder
+	# /. mean will add files to this currant path without create new folder
 	npx create-next-app my-app /. 
 ```
 
@@ -129,14 +129,14 @@ It automatically becomes available as a route.
 we use `[blog].jsx` to create Dynamic router
 
 >	if you have dynamic router and file in the same folder
->	the file will be the first excuted in the router tree
+>	the file will be the first executed in the router tree
 
 ```jsx
 	/* [blog].jsx */
 
 	import {useRouter} from 'next/router'
 
-	export funtion Blog() {
+	export function Blog() {
 		const router = useRouter();
 			
 		// query.blog came from file name 
@@ -216,7 +216,7 @@ if you don't have another child `a` you can use `passHref`
 ```
 
 
-#### Navigating programmaticaly
+#### Navigating programmatically
 ```jsx
 	import {useRouter} from 'next';
 
@@ -275,13 +275,13 @@ Next.js generates html for each page in advance instead of having it all done by
 	}
 ```
 
-**Not about SG** `sg => server genrate`
-- SG genrate two files `html` and `json` for each page.
+**Not about SG** `sg => server generate`
+- SG generate two files `html` and `json` for each page.
 - if you navigate directly to the page route, the html file is served
 - If you navigate to page from another route the page is created client side using the `javascript + json file`
 
 
-`getStaticProps` resive a context param content `params` object passed by `getStaticPaths`
+`getStaticProps` content `params` object passed by `getStaticPaths`
 ```jsx
 	export async function getStaticProps(context) {
 		const {params} = context;
@@ -357,7 +357,7 @@ _when to used it_
 like fallback:true but there isn't any loading indicator.
 
 #### Incremental Static Regeneration `ISR`
-- wiht `ISR`, nextjs allows us to update static pages after you've built your app
+- with `ISR`, nextjs allows us to update static pages after you've built your app
 
 ```jsx
 	export async function getStaticProps() {
@@ -415,7 +415,7 @@ use `SWR` react hooks for data fetching
 ```
 	api/
 		[postId]/
-			[commontId].jsx
+			[commentId].jsx
 			
 ```
 
@@ -533,7 +533,7 @@ help application that rely on a CMS
 		return (
 			<div>
 				<a onClick={(e) => {
-					e.prefentDefault();
+					e.preventDefault();
 					signIn();
 				}}>
 					Sign In
@@ -608,7 +608,7 @@ help application that rely on a CMS
 		if(!session) {
 			return {
 				redirect: {
-					destination: "/api/auth/signin?callbackurl=http://localhost:3000/",
+					destination: "/api/auth/sign-in?call-back-url=http://localhost:3000/",
 					permanent: false,
 				},
 			}

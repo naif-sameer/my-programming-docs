@@ -1,8 +1,8 @@
 # Javascript docs.
 
-## Bsics
+## Basics
 
-### Varibles
+### Variables
 
 Must start with [letter, under score, $]
 ```js
@@ -23,7 +23,7 @@ Must start with [letter, under score, $]
 	typeof() // check the data types.
 ``` 
 
-### Oerators
+### Operators
 - Assignment
 	+  `+=` `-=` `*=` `/=` `%=`
 	+  `**=` es6+ new features.
@@ -34,9 +34,9 @@ Must start with [letter, under score, $]
 	+  `==` `===` `!=` `!==`
 	+  `>` `>=` `<` `<=` 
 
--  Arithemtic
+-  Arithmetic
 	+  `x++` return the value before adding or one.
-	+  `++x` return the value after addding one.
+	+  `++x` return the value after adding one.
 	+  `--x` 
 	+  `x--`
 	+  `-x` return the negative of its operand
@@ -54,7 +54,7 @@ Must start with [letter, under score, $]
 ### Promise
 
 **properties of the promise**
-- `state` initially `pending` then changes to eigher 
+- `state` initially `pending` then changes to either 
 	+ `fulfilled` resolve called
 	+ `rejected` reject called
 - `result` initially `undefined` => `value` or `error`
@@ -64,7 +64,7 @@ There can be only a single result or error.
 
 ```js
 	let promise = new Promise((resolve, reject) => {
-		resolve('value'); // if the job finished successfuly.
+		resolve('value'); // if the job finished successfully.
 
 		//or 
 
@@ -73,7 +73,7 @@ There can be only a single result or error.
 ```
 
 `promise.then((result)=> {}, (err) => {})` 
-- fisrt arg resolve function.
+- first arg resolve function.
 - second arg rejected function.
 
 `promise.catch((err)=>{})` error handling.
@@ -106,13 +106,13 @@ There can be only a single result or error.
 
 ### Notes
 1. Call Stack
-	+ Mechanism to make interapreter track your call.
+	+ Mechanism to make interpreter track your call.
 	+ when you call a function its added to the stack.
 	+ when function executed its remove from the stack.
-	+ the interpreter continune calling from the last point.
-	+ call stack detct web api and leave it to the browser to handle it.
+	+ the interpreter continue calling from the last point.
+	+ call stack decked web api and leave it to the browser to handle it.
 2. Web api
-	- Methods available from Enviroment `Browser`
+	- Methods available from Environment `Browser`
 	- when complete it add the callback to the callback queue.
 3. Event loop
 	- wait the call stack to finish.
@@ -144,13 +144,13 @@ Usually we apply bind to fix `this` for an object method. so that we can pass it
 ```js
 	Object
 
-		.create(proto, [secriptiors]);
+		.create(proto, [descriptions]);
 
-		.getProototypeOf(obj);
+		.getPrototypeOf(obj);
 
 		.setPrototypeOf(obj, proto)
 
-		// these should used insted of `__proto__`
+		// these should used instead of `__proto__`
 		// `__proto__` bad in the speed
 ```
 
@@ -158,7 +158,7 @@ Usually we apply bind to fix `this` for an object method. so that we can pass it
 #### some methods
 ```js
 
-	// Note these methods are raely used in parctice.
+	// Note these methods are rarely used in practice.
 	Object
 		.preventExtensions(obj) // forbids the addition of new properties to the object
 
@@ -171,7 +171,7 @@ Usually we apply bind to fix `this` for an object method. so that we can pass it
 
 		.isExtensible(obj) // check if adding properties is forbidden
 
-		.isSeated(obj) // check if adding/remving properties is forbidden and all existing properties have `configurable: false`
+		.isSeated(obj) // check if adding/removing properties is forbidden and all existing properties have `configurable: false`
 
 		.isFrozen(obj) // if it Object.freeze()
 ```
@@ -197,7 +197,7 @@ Usually we apply bind to fix `this` for an object method. so that we can pass it
 `__proto__` getter || setter for prototype
 
 - There references can't go in circles.
-- The value can be eigher an object or null. other types are ignore.
+- The value can be either an object or null. other types are ignore.
 - Object can't inherit from two others object.
 - `this` is not affected by prototypes at all.
 - `for in` loop iterates over inherited properties too.
@@ -222,7 +222,7 @@ class Car {
 	log() {}
 
 	// computed name [...]
-		// dynamick name for the methods
+		// dynamics name for the methods
 		['hi' + 'by']() {}
 
 
@@ -235,7 +235,7 @@ class Car {
 			this._name = value;
 		}
 
-	// making bound methods with class usefull if you use
+	// making bound methods with class useful if you use
 	// setTimeout and you want to bind `this`
 
 		click = () => {
@@ -246,7 +246,7 @@ class Car {
 
 **Class inheritance** 
 Internals.
-- methods remember their class/object in the intrnal `[[HomeObject]]` property. that's how `super()` resolves parent methods
+- methods remember their class/object in the internal `[[HomeObject]]` property. that's how `super()` resolves parent methods
 - So It's not safe to copy a method `super` from one object to another 
 ```js
 	class Parent{}
@@ -258,8 +258,8 @@ Internals.
 	}
 ```
 
-**Static proerties and methods** 
-Usuallu, static methods are used to implement functions that belong to the class, but not to any particular object of it.
+**Static properties and methods** 
+Usually, static methods are used to implement functions that belong to the class, but not to any particular object of it.
 
 - Static properties and methods are inherited.
 
@@ -338,11 +338,11 @@ Error objects have following properties.
 
 
 	// Accessing object properties
-		user.name // dot notaion
+		user.name // dot notation
 
 		user['name'] // bracket notation
 
-	// Accessing object methdos
+	// Accessing object methods
 		user.getName();
 ```
 
@@ -370,7 +370,7 @@ Error objects have following properties.
 
 **delete** operator
 - delete property not objects.
-- can't delete varivable `let` and `const`
+- can't delete variable `let` and `const`
 - can't delete obj if it set by `Object.freeze()`
 - can't delete properties if it object flags with `configurable: false` 
 
@@ -389,7 +389,7 @@ Error objects have following properties.
 	let phone = new Phone(12345, 'red');
 
 
-	// check if it instance from the function contructor
+	// check if it instance from the function contractor
 		console.log(phone instanceof Phone);
 		// or
 		console.log(phone.constructor === Phone);
@@ -423,7 +423,7 @@ Error objects have following properties.
 	let obj = Object.defineProperty({}, 'name',{
 		writable: false, // edit it
 		enumerable: false, // loop it
-		configurable: false, // delete or configut it
+		configurable: false, // delete or configure it
 		value: 'Naif'
 	});
 
@@ -465,7 +465,7 @@ Error objects have following properties.
 		// static properties and methods new in es6+
 			static counter = 1;
 
-			static chanageName = () => {}
+			static changeName = () => {}
 	}
 
 	// inheritance
@@ -532,7 +532,7 @@ Error objects have following properties.
 	Array
 		.of('element to create the array')
 
-		.from(Iterable, [mapFnuction], [this])
+		.from(Iterable, [mapFunction], [this])
 
 		.fill(value, 'start default 0', 'end')
 
@@ -585,10 +585,10 @@ Symbols are unique.
 
 ```js
 	let symbol = Symbol()
-	// Symbol('lable') add the param for debuging only
+	// Symbol('label') add the param for debugging only
 
 
-	// search in global Symbol if it found will acsses it, if not found will create new one.
+	// search in global Symbol if it found will access it, if not found will create new one.
 		let mySymbol = Symbol.for('testing')
 
 		console.log(Symbol.keyFor(mySymbol)) // testing
@@ -687,7 +687,7 @@ Symbols are unique.
 	looping.next() // return {value: '', done: false}
 ```
 
-**Delegoting** 
+**Delegating** 
 ```js
 	function* one(){
 		yield 1;
@@ -714,7 +714,7 @@ Symbols are unique.
 		export let admin = {}
 
 		let a = 3;
-		// aliase
+		// aliases
 		export {
 			a as rank
 		}

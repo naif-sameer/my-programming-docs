@@ -63,7 +63,7 @@
 
 	const user: User = {
 		id: 1,
-		name: "Jogo"
+		name: "Jodo"
 	}
 ```
 
@@ -78,10 +78,10 @@
 	let customerId = cId as number;
 ```
 
-### funtions
+### functions
 optional param `y?` should be the last parameters
 
-you can add type to funtion return `number, string, boolean` | `void` 
+you can add type to function return `number, string, boolean` | `void` 
 ```ts
 	function addNumb(x: number, y?: number): number {
 		return x + y;
@@ -169,18 +169,18 @@ you can add type to funtion return `number, string, boolean` | `void`
 
 		get name(): string {return this._name}
 
-		set name(newNamw: string): void {this._name = newName }
+		set name(newName: string): void {this._name = newName }
 
 
 	// class static
-		static _hoppies: string;
+		static _skills: string;
 		static print() {
 			// only access static data
 		}
 	}
 
 	// static class
-	User._hoppies = "Test static property";
+	User._skills = "Test static property";
 
 
 	// Sup Class
@@ -205,7 +205,7 @@ you can add type to funtion return `number, string, boolean` | `void`
 
 	let numArr = getArray<number>([1, 2, 3]);
 
-	let strArr = getArray<string>(['Mario', 'Clokio']);
+	let strArr = getArray<string>(['Mario', 'Clonic']);
 ```
 
 

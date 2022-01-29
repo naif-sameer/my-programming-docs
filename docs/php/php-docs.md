@@ -42,11 +42,11 @@
 ```
 
 
-#### Constant varibale
+#### Constant variable
 ```php
 
 	define(name, 'Ali')
-	// constants are automaticalyy global you can call it from funtion without global key.
+	// constants are automatically global you can call it from function without global key.
 ```
 
 
@@ -54,7 +54,7 @@
 ### Data types
 - string
 - Integer
-- Floot
+- Float
 - Boolean
 - Array
 - Object
@@ -88,7 +88,7 @@
 
 ### Number methods
 ```php
-	PHP_INT_SIZE; // SIZE of intefer in bytes
+	PHP_INT_SIZE; // SIZE of integer in bytes
 	PHP_INT_MAX;
 	PHP_INT_MIN;
 
@@ -133,12 +133,12 @@
 
 | type  | operator | operator | 
 | ------------- | ------------- | ----|
-| Arithmentic | + - * / % ** |
+| Arithmetic | + - * / % ** |
 | Assignment | = += -= *= /= %= |
 | Comparison | == === !== > < <= >= |  `not equal <>` `spaceship <=>`   |
 | Increment / Decrement | ++$var $var++ $var-- --$var |
 | Logical operators | and or xor && `||` ! |
-| String operators | `connatenation of x,y` $x . $y | `append y to x` $x .= $y|
+| String operators | `concatenation of x,y` $x . $y | `append y to x` $x .= $y|
 | Array | + == === != <> !== |
 | Conditional assignment |`Ternary` $isOnline ? "yes" : 'No' ; |
 | Conditional assignment | `Null coalescing`  $x = exp1 ?? exp2|
@@ -241,13 +241,13 @@ named keys
 ```
 
 
-#### Multdimensional Array
+#### Multidimensional Array
 one or more array
 ```php
 	$cars = array(
 		array('ahmed', 13),
 		array('ali', 20),
-		array('Cocko', 23),
+		array('Cocks', 23),
 	);
 ```
 
@@ -350,7 +350,7 @@ hold information about
 
 	$date = mktime('hour, minutes, second, month, day, year');
 
-	date('y', $date); // get the year from spesific date using date()
+	date('y', $date); // get the year from specific date using date()
 
 
 	//Parse about any English textual datetime description into a Unix timestamp
@@ -410,7 +410,7 @@ hold information about
 	setcookie('cookie-name');
 	/*
 
-		setcookie(name, value, expire  'time to expire', path, domain, secure, httponly)
+		setcookie(name, value, expire  'time to expire', path, domain, secure, http_only)
 
 		// must be call before <html>
 
@@ -446,9 +446,9 @@ hold information about
 	filter_var($var, 'type of check')
 	/**
 	 * type of check ===>
-	 	FILTER_SANTIZE_STRING
-	 	FILTER_SANTIZE_EMAIL_URL
-	 	FILTER_SANTIZE_URL
+	 	FILTER_SANITIZE_STRING
+	 	FILTER_SANITIZE_EMAIL_URL
+	 	FILTER_SANITIZE_URL
 
 	 	FILTER_VALIDATE_INT
 	 	FILTER_VALIDATE_IP
@@ -478,7 +478,7 @@ Php support callback function
 	json_decode("{'name': 'json'}") // json to object|array
 	/**
 	 * return object by default
-	 * if you set second paramst to true it will return 'Array associative'
+	 * if you set second parament to true it will return 'Array associative'
 	 * 
 	 *@example json_decode("{'name': 'json'}", true);
 	 * */
@@ -543,7 +543,7 @@ an object is an instance of a class.
 ```
 
 ### Destructor
-funtion will automatically called at the end of the script.
+function will automatically called at the end of the script.
 
 ```php
 	class Cars
@@ -563,7 +563,7 @@ funtion will automatically called at the end of the script.
 	{
 		public $name; // accessed from every where
 
-		protected $age;	// accessed whithin the class and by classes derived from that class.
+		protected $age;	// accessed within the class and by classes derived from that class.
 
 		private $number; // accessed within the class
 
@@ -595,7 +595,7 @@ use `self::` to access const variables.
 	class Fruit {
 		const BYE_MESS = 'Bye bro';
 
-		public function byebye() 
+		public function bey() 
 		{
 			echo self::BYE_MESS;
 		}
@@ -619,7 +619,7 @@ Abstract classes and methods are when the parent class has a named method, but n
 
 Allow you to specify what methods a class should implement.
 
->	whene one or more classes use the same interface it is referred to as `polymorphism`
+>	when one or more classes use the same interface it is referred to as `polymorphism`
 
 ```php
  	interface ChatInterface {
@@ -696,7 +696,7 @@ use `parent::` if you want to access it in child class.
 
 
 ### Name Spaces
-They allow for better oraganization by grouping classes
+They allow for better organization by grouping classes
 that work together to perform a task.
 
 - They allow the same name to be used for more than one class.

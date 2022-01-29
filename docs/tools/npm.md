@@ -37,22 +37,22 @@ Edit default config init
 
 
 ```bash
-	# we use --save to add pacakge to package.json
-	npm install loadash --save 
+	# we use --save to add package to package.json
+	npm install lodash --save 
 
-	# add to devdependencies
+	# add to dependencies
 	npm install gulp --save-dev
 
-	# insatll to global
+	# install to global
 	npm install -g nodemon
 
-	# Does't install devdependencies
+	# Does't install devDependencies
 	npm install --production 
 
 	# remove packages
 	npm uninstall gulp --save-dev
 	npm remove gulp --save-dev
-	npm rm gulp --svae-dev
+	npm rm gulp --save-dev
 
 
 	npm install loadash@4.17.3 --save
@@ -62,7 +62,7 @@ Edit default config init
 
 Update packages
 ```bash
-	npm update loadash 
+	npm update lodash 
 ```
 
 
@@ -80,10 +80,10 @@ working with packages version
 	} 
 ```
 
-- `4.17.4` insatll ecact version
+- `4.17.4` install exact version
 - `^4.17.4` update only to minor 
 - `~4.17.4` update only patch
-- `*` install last version `not recomand`
+- `*` install last version `not recommend`
 
 
 add new Script

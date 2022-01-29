@@ -1,5 +1,5 @@
 what is REST?
->**Re**presentational **S**tate **T**ransfer
+>**Re**presentational **S**tate Transfer
  
 
 Put
@@ -9,7 +9,7 @@ PATCH
 > Whenever you want to update or modify a part of your request.
 
 
-## Staus Range
+## Status Range
 
 ### 2xx
 > tells the client a request was successful
@@ -24,7 +24,7 @@ PATCH
 > No content
 
 ### 3xx
-> Tesll the client about redirections
+> Tell the client about redirection
 
 #### 301
 > moved permanently
@@ -70,12 +70,12 @@ PATCH
 
 #### 501
 > Not implemented
-> Server does not know how to handle the request Might be avalilable in the future
+> Server does not know how to handle the request Might be available in the future
 
 
 #### 502 Bad gateway invalid response
 
-#### 503 service unavaliable down for maintenance
+#### 503 service unavailable down for maintenance
 
 #### 504 Gateway timeout
 
@@ -139,7 +139,7 @@ composer require laravel/passport
 
 # run passport
 php artisan migrate
-php artisan passport:insatll
+php artisan passport:install
 
 ```
 

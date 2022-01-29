@@ -30,7 +30,7 @@ when use `v-text` to bind the data to html it will replace all the content insid
 
 
 
-### Bindig html
+### Binding html
 
 **Note** Don't trust user input 
 
@@ -119,7 +119,7 @@ you can use `<template>` to wrap elements
 				</div>
 
 				<div v-else>
-					Unknow age
+					Unknown age
 				</div>
 
 			<!-- v-show -->
@@ -237,7 +237,7 @@ Event like
 		<!-- pass the event to the method -->
 			<button @click="plus('', $event)"> plus</button>
 		
-		<!-- multibly method -->
+		<!-- multiply method -->
 			<!-- 
 				on `method1`
 				doesn't pass event obj to the method
@@ -332,7 +332,7 @@ with `v-model` are
 - `number`
 - `lazy` bind the data after the event change
 
-we can use multible modifiers `v-model.trim.lazy`
+we can use multiple modifiers `v-model.trim.lazy`
 
 with `@submit`
 - `prevent` prevent the event
@@ -360,14 +360,14 @@ with `@keyup`
 
 ### Bonus Directives
 - `v-once` renders the corresponding html element only once.
-- `v-pre` skips comilation for the corresponding element.
+- `v-pre` skips compilation for the corresponding element.
 
 
 ### Custom directives
 `v-on:click.stop=""`
 - `v-on:` directive
-- `click` argement
-- `.stop` modifires
+- `click` argument
+- `.stop` modifiers
 - `""` value
 
 ```html
@@ -377,11 +377,11 @@ with `@keyup`
 
 	<script>
 		Vue.directive('color', {
-			inseted(el, binding) {
+			inserted(el, binding) {
 				// value
 					el.style.color = binding.value;
 
-				// modifires
+				// modifiers
 					if(binding.modifiers.border) {
 						el.style.border = binding.value;
 					}
@@ -397,7 +397,7 @@ with `@keyup`
 
 
 - They are used for composing new data from existing source
-- They'er highly peformanct as they are cashed calculations which only update when thire dependencies change.
+- They'er highly performance as they are cashed calculations which only update when there dependencies change.
 
 ```html
 	<template>
@@ -409,24 +409,24 @@ with `@keyup`
 			name: "app",
 			data: () => {
 				return {
-					fname: 'Ahmed',
-					lname: 'Khalid'
+					fName: 'Ahmed',
+					lName: 'Khalid'
 				}
 			},
 			computed: {
 				fullName() {
-					return this.fname + this.lname;
+					return this.fName + this.lName;
 				},
 
 				// Compted setter
 					fullName() {
 						get() {
-							return this.fname + this.lname;
+							return this.fName + this.lName;
 						},
 
 						set(value) {
-							this.fname = value.split(' ')[0];
-							this.lname = value.split(' ')[1];
+							this.fName = value.split(' ')[0];
+							this.lName = value.split(' ')[1];
 						}
 					}
 					// now you can set the value `this.fullName = ''`
@@ -477,7 +477,7 @@ Allow you to watch any data or computed property and execute some code in respon
 ### Computed vs watch
 Use Computed when:
 1. You need to compose new data from existing data source.
-2. You need to reduce the length of varivale
+2. You need to reduce the length of variable
 
 Use Watchers when:
 1. You have to check if a property has changed to a favorable value to know if you'er ready to perform an action.
@@ -530,7 +530,7 @@ Is an attribute that is passed to a component, but does not have a corresponding
 
 ```js
 	props: {
-		inheritAttrs: false // disable vue dufault behavior on root component
+		inheritAttrs: false // disable vue default behavior on root component
 	}
 ```
 
@@ -606,7 +606,7 @@ The two api provide a way to pass data through the component tree without having
 			export default {
 				name: 'Child',
 				methods: {
-					closePoup(name) {
+					closePopup(name) {
 						// name is the args we pass
 					}
 				}
@@ -757,9 +757,9 @@ By default, a component styles are applied globally in the component tree.
 
 `scoped` attribute ensures a components's css will apply only its html elements.
 
-- With Scoped, the parent component's styles will not leak into child components, Hovever, a child component's root node will be offected by both the parent's scoped and the child scoped.
+- With Scoped, the parent component's styles will not leak into child components, Hoverer, a child component's root node will be effected by both the parent's scoped and the child scoped.
 
-- When using slots, the parent components styles are applied and not the child component style. even through the content is embeded inside the Child Component.
+- When using slots, the parent components styles are applied and not the child component style. even through the content is embedded inside the Child Component.
 ```html
 	<style scoped>
 		
@@ -771,7 +771,7 @@ By default, a component styles are applied globally in the component tree.
 	<component :is="ComponentName" />
 
 
-	<!-- cashe the component usefull with multiple form tap -->
+	<!-- cashed the component useful with multiple form tap -->
 		<keep-alive>
 			<component :is="" />
 		</keep-alive>
@@ -803,21 +803,21 @@ A vue components can go through 4 phases
 5. MISC `activated` `deactivated()`, `renderTracked()`, `renderTriggered()`
 
 
-| hooks | describtion |
+| hooks | description |
 | -------------- | ------- |
 | beforeCreate | Can't use data, computed , watchers, and methods |
 | created | Best place for api call |
-| beforeMount, mounted | should be use for modifed dom a possible use case is focusing an input |
+| beforeMount, mounted | should be use for modified dom a possible use case is focusing an input |
 | beforeUpdate | used to remove event listener before delete dom |
 | updated | Triggered when a reactive property `data`, `computed` change or re-renders |
 | beforeUnmount | component is about to ve removed |
-| unmouneted | component is removed from the dom |
+| unmounted | component is removed from the dom |
 | activated, deactivated | keep a live component use when working with dynamic components |
 | renderTracked(), renderTriggered() | useful for debugging |
 
 
 
-### Temeplate Refs
+### Template Refs
 `refs` make it possible to access `DOM` directly within vue.
 
 ```html
@@ -841,11 +841,11 @@ A vue components can go through 4 phases
 
 
 
-### Reusabilty with mixins
+### Reusability with mixins
 You can mix
 - `computed`
 - `watchers`
-- `life sycle hooks`
+- `life cycle hooks`
 
 ```js
 	/* mixins/counter.js */
@@ -875,21 +875,21 @@ You can mix
 ```
 
 
-Merging of different optins 
+Merging of different options
 _`the same option in the component and mixin`_
 by default the component option gets the higher.
 
 
 
 ## Composition Api
-The composition api is a feature in vue3 which gives us another way to write our components more speufically, the script block in  a component.
+The composition api is a feature in vue3 which gives us another way to write our components more specifically, the script block in  a component.
 
 
 **Why composition api?** 
 1. Vue projects become hard to manage as they grew in size and complexity.
 2. Re-using logic across components become difficult.
 
->	The composition api allows us to encapusulate one piece of functionality so that you can use it in different components throught the appliacation.
+>	The composition api allows us to encapsulate one piece of functionality so that you can use it in different components through the application.
 
 
 
@@ -907,7 +907,7 @@ The composition api is a feature in vue3 which gives us another way to write our
 				// if you want to use the value inside setup
 					console.log(username.value)
 
-				// return a reactive refernce to a value.
+				// return a reactive reference to a value.
 				return {
 					username
 				}
@@ -940,8 +940,8 @@ The composition api is a feature in vue3 which gives us another way to write our
 
 ```
 
-- use `ref` fucntion when dealing with primitive type like string.
-- use `reactive` when a group of primitives are togeather
+- use `ref` function when dealing with primitive type like string.
+- use `reactive` when a group of primitives are together
 
 
 **toRefs**
@@ -961,7 +961,7 @@ from `reactive` value to `ref`;
 			});
 
 			return toRefs(state);
-			// now you can access `username` and `name` directlly
+			// now you can access `username` and `name` directly
 		}
 	}
 

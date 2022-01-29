@@ -12,7 +12,7 @@
 	function Greet(props: GreetProps) {}
 
 
-	// props with objct
+	// props with object
 		type PersonProps = {
 			name: {
 				first: string
@@ -29,7 +29,7 @@
 		}
 
 
-	// specifc the param value
+	// specific the param value
 		type StatusProps = {
 			state: 'loading' | 'success' | 'error'
 		}
@@ -41,7 +41,7 @@
 		}
 
 	// if the child is a react element
-		type MolduleProps = {
+		type ModuleProps = {
 			children: React.ReactNode
 		}
 
@@ -102,7 +102,7 @@
 			Component: React.ComponentType
 		}
 
-	// type asscenation
+	// type assentation
 		type ListProps<T> = {
 			item: T[]
 			onClick: (value: T) => void

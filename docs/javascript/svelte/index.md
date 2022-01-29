@@ -34,7 +34,7 @@
 
 
 	<style>
-		/* style by defalut scoped to the component */
+		/* style by default scoped to the component */
 
 		h1 {
 			color:  red;
@@ -59,7 +59,7 @@
 ## Events
 
 ```html
-	<!-- Sbtn.svelte -->
+	<!-- S btn.svelte -->
 
 	<!-- Event forwarding -->
 	<button on:click>handle the event from the parent</button>
@@ -68,7 +68,7 @@
 ```html
 	<!-- Parent.svelte -->
 	<script>
-		import Sbtn from './Sbtn.svelte';
+		import SBtn from './SBtn.svelte';
 
 		let count = 0;
 
@@ -88,7 +88,7 @@
 			console.log(count);
 
 			if (count > 5) {
-				console.log('count is larager than 5');
+				console.log('count is larger than 5');
 			}
 		}
 	</script>
@@ -105,20 +105,20 @@
 		Prevent Default
 	</button>
 
-	<Sbtn on:click={e => console.log(e)} />
+	<SBtn on:click={e => console.log(e)} />
 ```
 > 	Tip 
 > 	
-> 	- In Array and obj you need to return new referance to make them reactive
+> 	- In Array and obj you need to return new reference to make them reactive
 > 	
-> 	- You can use inline funtion without any performance issue.
+> 	- You can use inline function without any performance issue.
 
 ## props
 
 ```html
 	<!-- Card.svelte -->
 	<script>
-		export let title = 'defalut prop value';
+		export let title = 'default prop value';
 
 		// working with html classes
 		let className = '';
@@ -170,7 +170,7 @@
 	<input type="text" name="username" bind:value={name}>
 	<!-- 
 		when you use bind with input type (number | range)
-		svelte will make the value numbers insted of string
+		svelte will make the value numbers instead of string
 	 -->
 
 
@@ -186,13 +186,13 @@
 	 <textarea bind:value={mess}></textarea>
 
 	 <select bind:value={iceKind}>
-        <option value="choclate">choclate</option>
+        <option value="chocolate">chocolate</option>
         <option value="banana">Banana</option>
      </select>
 
      <!-- select with multiple -->
      <select multiple bind:value={flavors}>
-        <option value="choclate">choclate</option>
+        <option value="chocolate">chocolate</option>
         <option value="banana">Banana</option>
      </select>
 ```
@@ -204,7 +204,7 @@
 		let isDanger = false;
 	</script>		
 
-	<!-- shourthand for
+	<!-- shorthand for
 		class={isDanger ? 'danger' : ''}
 	 -->
 	<h3 class:danger={isDanger}></h3>
@@ -215,14 +215,14 @@
 	
 	<h2 bind:clientWidth>Dimensions</h2>
 	<h2 bind:clientHeight>Dimensions</h2>
-	<h2 bind:offsettWidth>Dimensions</h2>
-	<h2 bind:offsettHeight>Dimensions</h2>
+	<h2 bind:offsetWidth>Dimensions</h2>
+	<h2 bind:offsetHeight>Dimensions</h2>
 
 ```
 
 
 ### this keyword
-Allow you to optain a refernce to rendered elements.
+Allow you to option a reference to rendered elements.
 
 ```html
 	<!-- Input.svelte -->
@@ -264,7 +264,7 @@ Allow you to optain a refernce to rendered elements.
 		<h3> You are above 20</h3>
 
 	{#else}
-		<h3> Unkonw age</h3>
+		<h3> Unknown age</h3>
 
 	{/if}
 
@@ -466,7 +466,7 @@ Allow you to optain a refernce to rendered elements.
 	<!-- Card.svelte -->
 
 	<div>
-		<slot name="hero" first="Ahmed" last="Khaled">Default value</slot>
+		<slot name="hero" first="Ahmed" last="Khalid">Default value</slot>
 	</div
 ```
 
@@ -491,7 +491,7 @@ Allow you to optain a refernce to rendered elements.
 	<script>
 		import {setContext} from 'svelte';
 
-		// it is recomend to use obj insted of string
+		// it is recommend to use obj instead of string
 		setContext('username-context', 'Ahmed');
 	</script>
 ```
@@ -501,7 +501,7 @@ Allow you to optain a refernce to rendered elements.
 	<script>
 		import {getContext} from 'svelte';
 
-		// It is recomend to use obj insted of string
+		// It is recommend to use obj instead of string
 		let name = getContext('username-context');
 	</script>
 
@@ -522,7 +522,7 @@ Allow you to optain a refernce to rendered elements.
 
 
 		/**
-		 * if you return a funtion from the callback function, that function will be called when the components is unmounted
+		 * if you return a function from the callback function, that function will be called when the components is unmounted
 		 * 
 		 * - onMount does not render inside a server-side component wheres onDestroy does
 		 * */
@@ -581,7 +581,7 @@ Allow you to optain a refernce to rendered elements.
 
 ```
 
-You can use `$` to subscribe the store without creating new varibale
+You can use `$` to subscribe the store without creating new variable
 
 ```html
 	<script>
@@ -594,16 +594,16 @@ You can use `$` to subscribe the store without creating new varibale
 ```
 
 ### readable
-change the store value Dynamicly
+change the store value Dynamically
 
 ```html
 	<script >
 	
 		import {readable} from 'svelte/store';
 
-		let initailValue = new Date();
+		let initialValue = new Date();
 
-		const time = readable(initailValue , function start(set) {
+		const time = readable(initialValue , function start(set) {
 			const interval = setInterval(() => {
 				set(new Date());
 			}, 1000);
@@ -620,12 +620,12 @@ change the store value Dynamicly
 
 
 ### derived
-make a sotre whose value based on other store value
+make a store whose value based on other store value
 
 ```html
 	<script>
 		import {derived} from 'svelte/store'
-		import conut from './store/count';
+		import count from './store/count';
 
 		export const elapsed = derived(time, $count => {
 			return time + $count;
