@@ -1,6 +1,7 @@
 # Npm docs
 
 ## Basics
+
 ```bash
 	npm help-search update
 
@@ -14,31 +15,28 @@
 
 
 	# remove unused package from node_modules
-	npm prune 
+	npm prune
 ```
-
 
 ```bash
 	npm init
 	npm init -y
 ```
 
-
 Edit default config init
+
 ```bash
 	npm config set init-author-name "Naif"
-	npm set init-license 'MIT' 
+	npm set init-license 'MIT'
 
 
 	# reset init to default
 	npm config delete init-author-name
 ```
 
-
-
 ```bash
 	# we use --save to add pacakge to package.json
-	npm install loadash --save 
+	npm install loadash --save
 
 	# add to devdependencies
 	npm install gulp --save-dev
@@ -47,7 +45,7 @@ Edit default config init
 	npm install -g nodemon
 
 	# Does't install devdependencies
-	npm install --production 
+	npm install --production
 
 	# remove packages
 	npm uninstall gulp --save-dev
@@ -59,38 +57,38 @@ Edit default config init
 
 ```
 
-
 Update packages
-```bash
-	npm update loadash 
-```
 
+```bash
+	npm update loadash
+```
 
 ## Package.json
 
 working with packages version
+
 ```json
-	{
-		"dependencies": {
-			"lodash": "4.17.4",
-			"lodash": "^4.17.4",
-			"lodash": "~4.17.4",
-			"lodash": "*",
-		}
-	} 
+{
+  "dependencies": {
+    "lodash": "4.17.4",
+    "lodash": "^4.17.4",
+    "lodash": "~4.17.4",
+    "lodash": "*"
+  }
+}
 ```
 
 - `4.17.4` insatll ecact version
-- `^4.17.4` update only to minor 
+- `^4.17.4` update only to minor
 - `~4.17.4` update only patch
 - `*` install last version `not recomand`
 
-
 add new Script
+
 ```json
-	{
-		"scripts": {
-			"start": "node app.js"
-		}
-	} 
+{
+  "scripts": {
+    "start": "node app.js"
+  }
+}
 ```

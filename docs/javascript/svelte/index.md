@@ -1,68 +1,65 @@
 # svelte docs
->version: 
 
+> version:
 
 ## basics
 
 ```html
-	<script>
-		let mess = 'Hello World';
-		let imgSrc = 'https://images.com/cat.png';
-		let alt = 'image alt desc';
+<script>
+  let mess = "Hello World";
+  let imgSrc = "https://images.com/cat.png";
+  let alt = "image alt desc";
 
-		// import Component
-		import Card from './Card';
-	</script>
+  // import Component
+  import Card from "./Card";
+</script>
 
-	<!-- use your component -->
-	<Card />
+<!-- use your component -->
+<Card />
 
-	<h1> {mess}	</h1>
+<h1>{mess}</h1>
 
-	<img src={imgSrc} alt="">
+<img src="{imgSrc}" alt="" />
 
-	<!-- you can use attributes shorthand 
+<!-- you can use attributes shorthand 
 
 	 	<img src={imgSrc} {alt}>
 	 -->
 
+<p>
+  <!-- if you want to render html code -->
+  {@html "<b>Your html <i>code</i> here</b>"}
+</p>
 
-	 <p>
-	 	<!-- if you want to render html code -->
-	 	{@html "<b>Your html <i>code</i> here</b>"}
-	 </p>
+<style>
+  /* style by defalut scoped to the component */
 
-
-	<style>
-		/* style by defalut scoped to the component */
-
-		h1 {
-			color:  red;
-		}
-	</style>
+  h1 {
+    color: red;
+  }
+</style>
 ```
 
 ## style
 
 ```html
+<h3>Red color</h3>
 
-	<h3>Red color</h3>
-
-	<style>
-
-		/* global style */
-		:global(h3) {
-			color:  red;
-		}
-	</style>
+<style>
+  /* global style */
+  :global(h3) {
+    color: red;
+  }
+</style>
 ```
+
 ## Events
 
 ```html
-	<!-- Sbtn.svelte -->
+<!-- Sbtn.svelte -->
 
-	<!-- Event forwarding -->
-	<button on:click>handle the event from the parent</button>
+<!-- Event forwarding -->
+<button on:click>handle the event from the parent</button>
 ```
 
 ```html
@@ -96,7 +93,7 @@
 	<h3>{ count }</h3>
 
 	<button on:click={incrementCount}>Increment</button>
-	
+
 	<button on:mousemove={e => console.log(e)}>mouse move event</button>
 
 	<button on:click|once={() => console.log('run event only once')}>log</button>
@@ -107,132 +104,124 @@
 
 	<Sbtn on:click={e => console.log(e)} />
 ```
-> 	Tip 
-> 	
-> 	- In Array and obj you need to return new referance to make them reactive
-> 	
-> 	- You can use inline funtion without any performance issue.
+
+>     Tip
+>
+>     - In Array and obj you need to return new referance to make them reactive
+>
+>     - You can use inline funtion without any performance issue.
 
 ## props
 
 ```html
-	<!-- Card.svelte -->
-	<script>
-		export let title = 'defalut prop value';
+<!-- Card.svelte -->
+<script>
+  export let title = "defalut prop value";
 
-		// working with html classes
-		let className = '';
-		export {className as class};
-	</script>
+  // working with html classes
+  let className = "";
+  export { className as class };
+</script>
 
-	<h3 class={className}>
-		{title}
-	</h3>
-
+<h3 class="{className}">{title}</h3>
 ```
 
-
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import Card from './Card.svelte';
-	</script>
+<!-- Parent.svelte -->
+<script>
+  import Card from "./Card.svelte";
+</script>
 
-	<Card title='Card title' class="card-title" />
+<Card title="Card title" class="card-title" />
 
-	<!-- if you have an obj 
+<!-- if you have an obj 
 
 		<Card {...obj} />
 	-->
-
 ```
-
 
 ## Binding
 
 ```html
-	<script>
-		let name = '';
+<script>
+  let name = "";
 
-		let isOnline = false;
+  let isOnline = false;
 
-		let fast = '40%';
+  let fast = "40%";
 
-		let mess = '';
+  let mess = "";
 
-		let iceKind = '';
+  let iceKind = "";
 
-		let flavors = [];
-	</script>
+  let flavors = [];
+</script>
 
-	<h3>{name}</h3>
+<h3>{name}</h3>
 
-	<input type="text" name="username" bind:value={name}>
-	<!-- 
+<input type="text" name="username" bind:value="{name}" />
+<!-- 
 		when you use bind with input type (number | range)
 		svelte will make the value numbers insted of string
 	 -->
 
+<input type="checkbox" bind:checked="{isOnline}" />
 
-	 <input type="checkbox" bind:checked={isOnline}>
+<!-- bind a group -->
+<input type="radio" bind:group="{fast}" value="20%" />
+<input type="radio" bind:group="{fast}" value="40%" />
+<input type="radio" bind:group="{fast}" value="80%" />
+<input type="radio" bind:group="{fast}" value="100%" />
 
-	 <!-- bind a group -->
-	 <input type="radio" bind:group={fast} value="20%">
-	 <input type="radio" bind:group={fast} value="40%">
-	 <input type="radio" bind:group={fast} value="80%">
-	 <input type="radio" bind:group={fast} value="100%">
+<textarea bind:value="{mess}"></textarea>
 
+<select bind:value="{iceKind}">
+  <option value="choclate">choclate</option>
+  <option value="banana">Banana</option>
+</select>
 
-	 <textarea bind:value={mess}></textarea>
-
-	 <select bind:value={iceKind}>
-        <option value="choclate">choclate</option>
-        <option value="banana">Banana</option>
-     </select>
-
-     <!-- select with multiple -->
-     <select multiple bind:value={flavors}>
-        <option value="choclate">choclate</option>
-        <option value="banana">Banana</option>
-     </select>
+<!-- select with multiple -->
+<select multiple bind:value="{flavors}">
+  <option value="choclate">choclate</option>
+  <option value="banana">Banana</option>
+</select>
 ```
 
 ### class
-```html
-		
-	<script>
-		let isDanger = false;
-	</script>		
 
-	<!-- shourthand for
+```html
+<script>
+  let isDanger = false;
+</script>
+
+<!-- shourthand for
 		class={isDanger ? 'danger' : ''}
 	 -->
-	<h3 class:danger={isDanger}></h3>
+<h3 class:danger="{isDanger}"></h3>
 ```
 
 ### bind Dimensions
-```html
-	
-	<h2 bind:clientWidth>Dimensions</h2>
-	<h2 bind:clientHeight>Dimensions</h2>
-	<h2 bind:offsettWidth>Dimensions</h2>
-	<h2 bind:offsettHeight>Dimensions</h2>
 
+```html
+<h2 bind:clientWidth>Dimensions</h2>
+<h2 bind:clientHeight>Dimensions</h2>
+<h2 bind:offsettWidth>Dimensions</h2>
+<h2 bind:offsettHeight>Dimensions</h2>
 ```
 
-
 ### this keyword
+
 Allow you to optain a refernce to rendered elements.
 
 ```html
-	<!-- Input.svelte -->
-	<script>
-		let input;
-		export function focus () {
-			input.focus();
-		}
-	</script>
-	<input bind:this={input} type="text">
+<!-- Input.svelte -->
+<script>
+  let input;
+  export function focus() {
+    input.focus();
+  }
+</script>
+<input bind:this="{input}" type="text" />
 ```
 
 ```html
@@ -248,107 +237,97 @@ Allow you to optain a refernce to rendered elements.
 	<button on:click={() => inputField.focus()}>Focus the input</button>
 ```
 
-
 ## Logic
 
 ```html
-	<script>
+<script>
+  let age = 10;
+</script>
 
-		let age = 10;
-	</script>
+{#if age < 20}
+<h3>You are under 20</h3>
 
-	{#if age < 20}
-		<h3> You are under 20</h3>
+{#:else if age > 20}
+<h3>You are above 20</h3>
 
-	{#:else if age > 20}
-		<h3> You are above 20</h3>
+{#else}
+<h3>Unkonw age</h3>
 
-	{#else}
-		<h3> Unkonw age</h3>
-
-	{/if}
-
+{/if}
 ```
-
 
 ## Loops
 
 ```html
-	<script>
-		let cats= [
-			{
-				id: 1,
-				name: 'Aaaa'
-			},
-			{
-				id: 2,
-				name: 'Bbbb'
-			},
-			{
-				id: 3,
-				name: 'Cccc'
-			},
-			];
-	</script>
+<script>
+  let cats = [
+    {
+      id: 1,
+      name: "Aaaa",
+    },
+    {
+      id: 2,
+      name: "Bbbb",
+    },
+    {
+      id: 3,
+      name: "Cccc",
+    },
+  ];
+</script>
 
-	{#each cats as {id, name}, index }
+{#each cats as {id, name}, index }
 
-		<h3>
-			<span>list index: {index} </span>
-		 	Id is: {id} and Name is: {name}
-		</h3>
-	{/each}
+<h3>
+  <span>list index: {index} </span>
+  Id is: {id} and Name is: {name}
+</h3>
+{/each}
 
+<!-- loop with key -->
+{#each cats as cat (cat.id) }
 
-	<!-- loop with key -->
-	{#each cats as cat (cat.id) }
-
-		<h3> {cat.name} </h3>
-	{/each}
-
+<h3>{cat.name}</h3>
+{/each}
 ```
-
-
 
 ## promise
 
 ```html
-	<script>
-		let apiData = fetch('https://ex.com/data.json');
-	</script>
+<script>
+  let apiData = fetch("https://ex.com/data.json");
+</script>
 
-	{#await apiData}
-		<h3>Loading...</h3>
+{#await apiData}
+<h3>Loading...</h3>
 
-	{:then data}
-		<h3> {data} <h3>
-
-
-	{:catch error}
-		<h3> {error} </h3>
-	{/await}
+{:then data}
+<h3>
+  {data}
+  <h3>
+    {:catch error}
+    <h3>{error}</h3>
+    {/await}
+  </h3>
+</h3>
 ```
-
-
-
 
 ## Dynamic components
+
 ```html
-	<script>
-		import TabA from './TabA.svelte';
-		import TabB from './TabB.svelte';
-		import TabC from './TabC.svelte';
+<script>
+  import TabA from "./TabA.svelte";
+  import TabB from "./TabB.svelte";
+  import TabC from "./TabC.svelte";
 
+  let activeTab = TabA;
+</script>
 
-		let activeTab = TabA;
-	</script>
-
-	<svelte:component this={activeTab} />
-
+<svelte:component this="{activeTab}" />
 ```
 
-
 ## Component Event
+
 ```html
 	<!-- Child.svelte -->
 	<script>
@@ -358,9 +337,9 @@ Allow you to optain a refernce to rendered elements.
 	</script>
 
 	<!--
-		- child 
+		- child
 			dispatch('event', 'data');
-		
+
 		-parent
 			on:event={(e) => {
 				// work with event data
@@ -375,35 +354,32 @@ Allow you to optain a refernce to rendered elements.
 ```
 
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import Child from './Child.svelte';
+<!-- Parent.svelte -->
+<script>
+  import Child from "./Child.svelte";
+</script>
 
-	</script>
-
-	<Child on:close={()=>{}} />
+<Child on:close={()=>{}} />
 ```
 
 ### Event forwarding
 
 ```html
-	<!-- Button.svelte -->
-	<button on:click>Close</button>
+<!-- Button.svelte -->
+<button on:click>Close</button>
 ```
 
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import Button from './Button.svelte';
+<!-- Parent.svelte -->
+<script>
+  import Button from "./Button.svelte";
+</script>
 
-	</script>
-
-	<Button on:close={()=>{}} />
+<Button on:close={()=>{}} />
 ```
 
-
-
 ## Component slots
+
 ```html
 	<!-- Card.svelte -->
 
@@ -418,18 +394,18 @@ Allow you to optain a refernce to rendered elements.
 ```
 
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import Card from './Card.svelte';
+<!-- Parent.svelte -->
+<script>
+  import Card from "./Card.svelte";
+</script>
 
-	</script>
-
-	<Card>
-		<h2>Card title</h2>
-	</Card>
+<Card>
+  <h2>Card title</h2>
+</Card>
 ```
 
 ### Named slots
+
 ```html
 	<!-- Card.svelte -->
 
@@ -445,23 +421,20 @@ Allow you to optain a refernce to rendered elements.
 ```
 
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import Card from './Card.svelte';
+<!-- Parent.svelte -->
+<script>
+  import Card from "./Card.svelte";
+</script>
 
-	</script>
-
-	<Card>
-		<div slot="header">Card title</div>
-		<div slot="content">Card content</div>
-		<div slot="footer">Card footer</div>
-
-
-	</Card>
+<Card>
+  <div slot="header">Card title</div>
+  <div slot="content">Card content</div>
+  <div slot="footer">Card footer</div>
+</Card>
 ```
 
-
 ### slot param
+
 ```html
 	<!-- Card.svelte -->
 
@@ -471,189 +444,170 @@ Allow you to optain a refernce to rendered elements.
 ```
 
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import Card from './Card.svelte';
+<!-- Parent.svelte -->
+<script>
+  import Card from "./Card.svelte";
+</script>
 
-	</script>
-
-	<Card>
-		<div slot="header" let:first let:last>
-			{first} - {last}
-		</div>
-
-	</Card>
+<Card>
+  <div slot="header" let:first let:last>{first} - {last}</div>
+</Card>
 ```
 
 ## Context
-```html
-	<!-- Child.svelte -->
-	<script>
-		import {setContext} from 'svelte';
 
-		// it is recomend to use obj insted of string
-		setContext('username-context', 'Ahmed');
-	</script>
+```html
+<!-- Child.svelte -->
+<script>
+  import { setContext } from "svelte";
+
+  // it is recomend to use obj insted of string
+  setContext("username-context", "Ahmed");
+</script>
 ```
 
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import {getContext} from 'svelte';
+<!-- Parent.svelte -->
+<script>
+  import { getContext } from "svelte";
 
-		// It is recomend to use obj insted of string
-		let name = getContext('username-context');
-	</script>
+  // It is recomend to use obj insted of string
+  let name = getContext("username-context");
+</script>
 
-	<h3>{name}</h3>
+<h3>{name}</h3>
 ```
 
 ## Life cycle
 
 ```html
-	<script>
-		import {
-			onMount,
-		   onDestroy,
-		   beforeUpdate,
-		   afterUpdate,
-		   tick
-		} from 'svelte';
+<script>
+  import { onMount, onDestroy, beforeUpdate, afterUpdate, tick } from "svelte";
 
+  /**
+   * if you return a funtion from the callback function, that function will be called when the components is unmounted
+   *
+   * - onMount does not render inside a server-side component wheres onDestroy does
+   * */
+  onMount(() => {
+    console.log("fetch api....");
+  });
 
-		/**
-		 * if you return a funtion from the callback function, that function will be called when the components is unmounted
-		 * 
-		 * - onMount does not render inside a server-side component wheres onDestroy does
-		 * */
-		onMount(() => {
-			console.log('fetch api....');
-		});
+  // run before the component is unmounted
+  onDestroy();
 
-		// run before the component is unmounted
-		onDestroy();
+  beforeUpdate();
+  afterUpdate();
 
-		beforeUpdate();
-		afterUpdate();
+  // return a promise that resolve once any pending state changes have been applied
+  tick();
+</script>
 
-		// return a promise that resolve once any pending state changes have been applied
-		tick();
-	</script>
-
-	<h3>data</h3>
-
+<h3>data</h3>
 ```
 
 ## Store
 
 ```js
-	// store/count.js
+// store/count.js
 
-	import {writable} from 'svelte/store';
+import { writable } from "svelte/store";
 
-	export const count = writable(1);
+export const count = writable(1);
 ```
 
 ```html
-	<script>
-		
-		import {count} from './store/count';
+<script>
+  import { count } from "./store/count";
 
-		function increment() {
-			count.update(value => value+1);
-		}
+  function increment() {
+    count.update((value) => value + 1);
+  }
 
-		function reset () {
-			count.set(0);
-		}
+  function reset() {
+    count.set(0);
+  }
 
-		let count_value;
+  let count_value;
 
-		const unsubscribe = count.subscribe(value => {
-			count_value = value;
-		});
+  const unsubscribe = count.subscribe((value) => {
+    count_value = value;
+  });
 
-		onDestroy(unsubscribe);
+  onDestroy(unsubscribe);
+</script>
 
-	</script>
-
-	<h3>{count_value}</h3>
-
+<h3>{count_value}</h3>
 ```
 
 You can use `$` to subscribe the store without creating new varibale
 
 ```html
-	<script>
-		// our store should be imported at the top level scope
-		import {count} from './store/count';
-	</script>
+<script>
+  // our store should be imported at the top level scope
+  import { count } from "./store/count";
+</script>
 
-	<h3>{$count}</h3>
-
+<h3>{$count}</h3>
 ```
 
 ### readable
+
 change the store value Dynamicly
 
 ```html
-	<script >
-	
-		import {readable} from 'svelte/store';
+<script>
+  import { readable } from "svelte/store";
 
-		let initailValue = new Date();
+  let initailValue = new Date();
 
-		const time = readable(initailValue , function start(set) {
-			const interval = setInterval(() => {
-				set(new Date());
-			}, 1000);
+  const time = readable(initailValue, function start(set) {
+    const interval = setInterval(() => {
+      set(new Date());
+    }, 1000);
 
-			return function stop() {
-				clearInterval(interval);
-			}	
-		});
-	</script>
+    return function stop() {
+      clearInterval(interval);
+    };
+  });
+</script>
 
-
-	<h1> {time} </h1>
+<h1>{time}</h1>
 ```
 
-
 ### derived
+
 make a sotre whose value based on other store value
 
 ```html
-	<script>
-		import {derived} from 'svelte/store'
-		import conut from './store/count';
+<script>
+  import { derived } from "svelte/store";
+  import conut from "./store/count";
 
-		export const elapsed = derived(time, $count => {
-			return time + $count;
-		})
-	</script>
+  export const elapsed = derived(time, ($count) => {
+    return time + $count;
+  });
+</script>
 
-	<h3>data</h3>
-
+<h3>data</h3>
 ```
 
 ### Custom store
 
 ```js
-	// store/count.js
-		import {writable} from 'svelte/store'
+// store/count.js
+import { writable } from "svelte/store";
 
-		function createCount () {
-			const {subscribe, set, update} = writable(0);
+function createCount() {
+  const { subscribe, set, update } = writable(0);
 
-			return {
-				subscribe, //required
-				increment: () => update(n => n+1),
-				decrement: () => update(n => n-1),
-				reset: () => set(0),
-			}
-		}
+  return {
+    subscribe, //required
+    increment: () => update((n) => n + 1),
+    decrement: () => update((n) => n - 1),
+    reset: () => set(0),
+  };
+}
 
-		export const count = createCount();
-
+export const count = createCount();
 ```
-
