@@ -11,7 +11,7 @@ Mongodb editions
 1. download **mongodb community server**
 2. install the application
 	+ install mongodb as a service
-3. insall **Mongodb compass community version (free)**
+3. install **Mongodb compass community version (free)**
 
 ## Json and Bson
 
@@ -19,7 +19,7 @@ Mongodb editions
 Stands for Binary JSON, which is  a binary-coded serialization of JSON-like documents
 
 ## mongodb documents
-mongodb stores data records as BSON documents, which are simply called doucments.
+mongodb stores data records as BSON documents, which are simply called documents.
 ```bson
 {
 	_id: ObjectId('398948384989f9090duf09uf09du9df'),

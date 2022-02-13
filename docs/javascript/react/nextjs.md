@@ -135,7 +135,7 @@ It automatically becomes available as a route.
 we use `[blog].jsx` to create Dynamic router
 
 >     if you have dynamic router and file in the same folder
->     the file will be the first excuted in the router tree
+>     the file will be the first executed in the router tree
 
 ```jsx
 	/* [blog].jsx */
@@ -221,7 +221,7 @@ function Home() {
 }
 ```
 
-#### Navigating programmaticaly
+#### Navigating programmatically
 
 ```jsx
 import { useRouter } from "next";
