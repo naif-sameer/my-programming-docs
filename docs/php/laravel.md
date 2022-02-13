@@ -10,16 +10,14 @@
 
 ```
 
-
-
 ## serve the application
-```bash 
-	php artisan serve			
+
+```bash
+	php artisan serve
 ```
 
-
-
 ## working with .env file
+
 > Laravel's .env file contains configuration values. These values are then retrieved from various Laravel configuration files within the config directory using Laravel's `env` function.
 
 ```php
@@ -29,16 +27,14 @@
 
 > The second value passed to the env function is the "default value". This value will be returned if no environment variable exists for the given key.
 
-
-
 ## print to the page
+
 ```php
 print_r($id); # var or array to print it on the page;
 ```
 
-
-
 ## route
+
 > The web.php file contains routes that the RouteServiceProvider places in the web middleware group, which provides session state, CSRF protection, and cookie encryption. If your application does not offer a stateless, RESTful API then it is likely that all of your routes will most likely be defined in the web.php file.
 
 > The api.php file contains routes that the RouteServiceProvider places in the api middleware group. These routes are intended to be stateless, so requests entering the application through these routes are intended to be authenticated via tokens and will not have access to session state.
@@ -52,7 +48,7 @@ Route::get('/', function() {
 # route to send res
 Route::get('/users', function() {
 
-	// blade templates 
+	// blade templates
 	return view('users');
 
 	// string
@@ -87,7 +83,6 @@ Route::get('/home', 'HomeController@index');
 
 ```
 
-
 ### Route Parameters
 
 ```php
@@ -114,12 +109,11 @@ Route::get('/home/{name}/{id}',
 	->where(['name' => '[a-z]+', 'id' => '[0-9]+']);
 ```
 
-
 ### Named Routes
+
 ```php
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 ```
-
 
 ### routes with resource
 
@@ -212,11 +206,11 @@ class HomeController extends Controller {
         return 'test destroy ' . $id;
     }
 
-}	
+}
 
 ```
 
-### routes *Accessing the request*
+### routes _Accessing the request_
 
 ```php
 public function store(Request $request)
@@ -234,7 +228,7 @@ public function store(Request $request)
 # in the view file
     @if ($errors->any())
     	<div>
-    		@foreach ($errors->all() as $error) 
+    		@foreach ($errors->all() as $error)
     			<div>
     				{{$error}}
     			</div>
@@ -252,7 +246,7 @@ php artisan make:rule Uppercase
 
 ```php
 
-# rule file	
+# rule file
 class Uppercase implements Rule
 {
     /**
@@ -290,7 +284,7 @@ class Uppercase implements Rule
 
 
 
-# validate function 
+# valuidate funtion
 $request->validate([
 	name-> new Uppercase;
 ])
@@ -298,14 +292,13 @@ $request->validate([
 
 ```
 
-
 #### form requests
 
 ```bash
 php artisan make:request CreateValidate
 ```
 
-```php 
+```php
 
 # request file
 class CreateValidation extends FormRequest
@@ -342,9 +335,8 @@ public function index(CreateValidation $request) {
 
 ```
 
-
-
 #### images upload
+
 ```php
 public function index(Request $request)
 {
@@ -374,17 +366,12 @@ public function index(Request $request)
 
 ```
 
-
-
-
-
 ## The Http Directory
 
 > The Http directory contains your controllers, middleware, and form requests. Almost all of the logic to handle requests entering your application will be placed in this directory.
 
-
-
 ## Artisan command
+
 ```bash
 # change serve port
 php artisan serve --port=8081
@@ -402,7 +389,7 @@ php artisan make:controller NameController --resource
 php artisan list
 
 
-# Remove the compiled class file    
+# Remove the compiled class file
 php artisan clear-compiled
 
 
@@ -434,17 +421,15 @@ php artisan view:clear
 
 ```
 
-
-
 ## working with View
 
 ```php
 # ------------------- working with file path ----------
 /**
- * if you have file like this; 
+ * if you have file like this;
  *	view/
  * 		products/
- * 			index.blade.php 
+ * 			index.blade.php
  */
 
 # you can user point
@@ -461,28 +446,26 @@ view('products.index');
 	$title = 'Hello every one on my chanel'
 	view('home')->with('title', $title);
 
-# Directly in the view 
+# Directly in the view
 	view('home', [
 		'name'=> 'value'
 	]);
 
 ```
 
-
-
 ## Blade template
 
 ```php
 /**
- * 
+ *
  * create a folder called *layouts*
- * 
+ *
  * */
 
 /**
 
 *parent*
-	<header /> 
+	<header />
 
 	@yield('content')
 
@@ -494,7 +477,7 @@ view('products.index');
  	@section
 		<div> you content here </div>
  	@endsection
- 
+
 */
 
 #----------- active class -------------
@@ -526,7 +509,7 @@ view('products.index');
 
 @elseif ()
 
-@else 
+@else
 
 @endif
 
@@ -543,7 +526,7 @@ view('products.index');
 
 #----------- isset -------------
 @isset($var_name)
-	
+
 @endisset
 
 
@@ -552,7 +535,7 @@ view('products.index');
 	@case ('ali'):
 		// code...
 		@break;
-	
+
 	@default:
 		// code...
 		@break;
@@ -561,16 +544,14 @@ view('products.index');
 
 #----------- loops -------------
 
-# loop and check if the item array is empty 
+# loop and check if the item array is empty
 @forelse ($names as $name)
 	# <div> {{ $name }} </div>
-@empty 
+@empty
 	# <h3>there no names</h3>
 @endforelse
 
 ```
-
-
 
 ## working with assets
 
@@ -579,8 +560,6 @@ view('products.index');
 # laravel frontend presets
 
 ```
-
-
 
 ## Databases & migrations
 
@@ -600,9 +579,9 @@ php artisan migrate:refresh
 
 # Show the status of each migration
 php artisan migrate:status
- 
 
-# you can quickly apply new schema 
+
+# you can quickly apply new schmea
 php artisan migrate:fresh
 
 
@@ -617,8 +596,8 @@ php artisan make:model --factory File_name
 
 ```
 
-> *on the migration folder* up function mean to create the table
-down() mean to clean what you do before.
+> _on the migration folder_ up funtion mean to create the table
+> down() mean to clean what you do before.
 
 ```php
 public function up()
@@ -634,6 +613,7 @@ public function up()
 ```
 
 ### factory
+
 > add fake data to your dbs
 
 ```bash
@@ -645,7 +625,6 @@ php artisan make:factory PostFactory
 Post::factory()->count(1)->create();
 
 ```
-
 
 ### Query builder
 
@@ -662,8 +641,8 @@ DB::table('posts')->where('id', 1)->get();
 $post = DB::select('select * from posts');
 
 
-# select and where query 
-  
+# select and where query
+
 $post = DB::select('select * from posts where id = :id',
 		 ['id'=> 2]);
 
@@ -727,16 +706,16 @@ $post = DB::table('posts')
 		'body'=> 'fresh body content'
 	]) # return 1 if updated or 0 if not updated
 
-	
+
 	->delete('55') # return init count of how much deleted item
 
 
 DB::table('posts')->select('title')->get();
 ```
 
-
 ### Eloquent
-> why --> simplicity
+
+> why --> simplisity
 
 ```php
 
@@ -783,8 +762,8 @@ class TestController extends Controller {
 
 					->firstOrFail();
 
-				
-				Test::chunk('amount of rows', function($cars) {
+
+				Test::chunk('amout of rows', funciton($cars) {
 						// code here
 				});
 	}
@@ -799,18 +778,18 @@ class TestController extends Controller {
 		$car->save();
 
 
-		# another way 
+		# another way
 		Test::create([
 			'name'=> $request->input('name'),
 		]);
 
-		## you need to add this line in your model file 
+		## you need to add this line in your model file
 		/***
-		 	protected $fileable = ['name']; 
+		 	protected $filelable = ['name'];
 		 */
 
 		return redirect('/test');
-	}	
+	}
 
 
 	 public function update(Request $request, $id)
@@ -834,7 +813,6 @@ class TestController extends Controller {
 
 ```
 
-
 ### Eloquent serialization
 
 ```php
@@ -849,7 +827,6 @@ public function index()
 
 }
 ```
-
 
 #### Eloquent one to many
 
@@ -880,8 +857,8 @@ public function up () {
 # test model
 class Cars extends Model
 {
-	
-	public function carDowels()
+
+	public function carDodels()
 	{
 		return this->hasMany(CarModel::class);
 	}
@@ -896,18 +873,18 @@ class Cars extends Model
 ```
 
 #### Many to many
+
 ```php
 
 
 ```
 
-
-
 ## Authentication & Authorization
 
-*Authentication*
-> Verbifying who someone is, and allowing them to act as that person in your system
+_Authentication_
 
+> Verrifying who someone is, and allowing them to act as that person in your sestem
 
-*Authorization*
+_Authorization_
+
 > Determining whether the authenticated user is allowed (authorized) to perform a specific behavior.

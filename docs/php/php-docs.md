@@ -1,6 +1,7 @@
 # Php docs
 
 ## basics
+
 ```php
 
 	echo 'Hello world!';
@@ -12,6 +13,7 @@
 ```
 
 ### Variables
+
 ```php
 	$text = "Hello world!";
 
@@ -19,6 +21,7 @@
 ```
 
 #### Static
+
 ```php
 	// A static variable exists only in a local function scope, but it does not lose its value when program execution leaves this scope.
 	function test(){
@@ -29,8 +32,8 @@
 
 ```
 
-
 #### $GLOBALS
+
 ```php
 
 	$mess = 'hello';
@@ -41,17 +44,16 @@
 	}
 ```
 
+#### Constant varibale
 
-#### Constant variable
 ```php
 
 	define(name, 'Ali')
 	// constants are automatically global you can call it from function without global key.
 ```
 
-
-
 ### Data types
+
 - string
 - Integer
 - Float
@@ -69,13 +71,14 @@
 ```
 
 ### String methods
+
 ```php
 
 	strlen('string'); // string length
 
 	str_word_count('string');
 
-	strrev('string'); // reverse string 
+	strrev('string'); // reverse string
 
 	strpos('string', 'g'); // search for a text within a string
 
@@ -85,8 +88,8 @@
 
 ```
 
-
 ### Number methods
+
 ```php
 	PHP_INT_SIZE; // SIZE of integer in bytes
 	PHP_INT_MAX;
@@ -112,8 +115,8 @@
 	intval('4ddd');
 ```
 
-
 ### Math methods
+
 ```php
 	Pi();
 
@@ -128,23 +131,22 @@
 	rand(); // random numbers. rand(min, max);
 ```
 
-
 ### Operators
 
-| type  | operator | operator | 
-| ------------- | ------------- | ----|
-| Arithmetic | + - * / % ** |
-| Assignment | = += -= *= /= %= |
-| Comparison | == === !== > < <= >= |  `not equal <>` `spaceship <=>`   |
-| Increment / Decrement | ++$var $var++ $var-- --$var |
-| Logical operators | and or xor && `||` ! |
-| String operators | `concatenation of x,y` $x . $y | `append y to x` $x .= $y|
-| Array | + == === != <> !== |
-| Conditional assignment |`Ternary` $isOnline ? "yes" : 'No' ; |
-| Conditional assignment | `Null coalescing`  $x = exp1 ?? exp2|
-
+| type                   | operator                             | operator                       |
+| ---------------------- | ------------------------------------ | ------------------------------ | --- |
+| Arithmentic            | + - \* / % \*\*                      |
+| Assignment             | = += -= \*= /= %=                    |
+| Comparison             | == === !== > < <= >=                 | `not equal <>` `spaceship <=>` |
+| Increment / Decrement  | ++$var $var++ $var-- --$var          |
+| Logical operators      | and or xor && `                      |                                | ` ! |
+| String operators       | `connatenation of x,y` $x . $y       | `append y to x` $x .= $y       |
+| Array                  | + == === != <> !==                   |
+| Conditional assignment | `Ternary` $isOnline ? "yes" : 'No' ; |
+| Conditional assignment | `Null coalescing` $x = exp1 ?? exp2  |
 
 ### if..else statements
+
 ```php
 	if (condition) {
 		// code...
@@ -155,14 +157,14 @@
 	}
 ```
 
-
 ### Switch
+
 ```php
 	switch (variable) {
 		case 'value':
 			// code...
 			break;
-		
+
 		default:
 			// code...
 			break;
@@ -170,18 +172,19 @@
 ```
 
 ### loops
+
 ```php
 	while (condition) {
 		// code...
 	}
 
-	
+
 	do {
 		// code...
 	} while (condition);
 
 
-	for ($i=0; $i < ; $i++) { 
+	for ($i=0; $i < ; $i++) {
 		// code...
 	}
 
@@ -191,14 +194,14 @@
 	}
 
 
-	for ($i=0; $i < ; $i++) { 	
+	for ($i=0; $i < ; $i++) {
 		break;
 		continue;
 	}
 ```
 
-
 ### functions
+
 ```php
 	function FunctionName($value='') : string
 	{
@@ -206,18 +209,18 @@
 	}
 ```
 
-
 ### Array
+
 ```php
 	$cars = array('v2', 'v3');
 
 	count($cars); // array length
 ```
 
-
-
 #### Indexed Arrays
+
 call by index
+
 ```php
 	$cars = array('v2', 'v3');
 
@@ -226,9 +229,10 @@ call by index
 	echo $cars[1];
 ```
 
-
 #### Associative Array
+
 named keys
+
 ```php
 	$students = array("Peter"=> 40, "Ahmed" => 20);
 
@@ -240,9 +244,10 @@ named keys
 	echo $students['Peter'];
 ```
 
+#### Multdimensional Array
 
-#### Multidimensional Array
 one or more array
+
 ```php
 	$cars = array(
 		array('ahmed', 13),
@@ -251,10 +256,8 @@ one or more array
 	);
 ```
 
-
-
-
 #### Sort arrays
+
 ```php
 	sort(array)
 	rsort(array)
@@ -269,6 +272,7 @@ one or more array
 ```
 
 ### Super globals
+
 - $GLOBALS
 - $SERVER
 - $REQUEST
@@ -280,7 +284,9 @@ one or more array
 - $SESSION
 
 #### SERVER
-hold information about 
+
+hold information about
+
 > paths, script locations
 
 ```php
@@ -290,6 +296,7 @@ hold information about
 ```
 
 #### REQUEST
+
 ```php
  	$_REQUEST['fname'] // <input name=fname />
 
@@ -298,9 +305,8 @@ hold information about
  	$_GET['']
 ```
 
-
-
 ### Regex
+
 ```php
 	preg_match($pattern, $str) // 1 | 0
 
@@ -308,13 +314,12 @@ hold information about
 
 	preg_replace($pattern, "new word", $str);
 
-	
+
 
 ```
 
-
-
 ### Form handling
+
 ```php
 	htmlspecialchars('html code here'); // print save html
 
@@ -327,21 +332,20 @@ hold information about
 
 ```
 
-
-
 ### Date and time
+
 ```php
-	
-	date('format', 'time stamp') 
+
+	date('format', 'time stamp')
 	/**
-	 * Format ====> 
+	 * Format ====>
 	 	d 'day', m 'month', y 'year',
 	 	l 'day of the week', H 'hours 24', h 'hours 12',
 	    i 'minutes', s 'second', a 'am or pm'
-	 * 
-	 *@example 
+	 *
+	 *@example
 	 * date('y-m-d') // return the current date|time
-	 * 
+	 *
 	 * */
 
 
@@ -354,13 +358,12 @@ hold information about
 
 
 	//Parse about any English textual datetime description into a Unix timestamp
-	strtotime(); 
-	
+	strtotime();
+
 ```
 
-
-
 ### Include files
+
 ```php
 	require 'footer.php'; // script will stop if there any error
 
@@ -368,17 +371,16 @@ hold information about
 
 ```
 
-
-
 ### File handling
+
 ```php
 	readfile('filename.txt');
 
 	$file = fopen("filename.txt", 'mode')
 	/**
 	 * fopen() will create new file if it doesn't exist.
-	 * 
-	 * Mode ====> 
+	 *
+	 * Mode ====>
 	 	r  'read only'
 	 	w  'write only remove old content'
 	 	a  'write only add at the last'
@@ -401,9 +403,6 @@ hold information about
 	fwrite($file, 'new text');
 ```
 
-
-
-
 ### Cookies
 
 ```php
@@ -420,8 +419,6 @@ hold information about
 	$_COOKIE['cookie-name'];
 ```
 
-
-
 ### Sessions
 
 ```php
@@ -434,9 +431,6 @@ hold information about
 
 	session_destroy() // destroy the session
 ```
-
-
-
 
 ### Filter
 
@@ -453,22 +447,18 @@ hold information about
 	 	FILTER_VALIDATE_INT
 	 	FILTER_VALIDATE_IP
 	 	FILTER_VALIDATE_EMAIL
-	 
+
 	 * */
-	
+
 ```
 
-
-
-
 ### Callback
+
 Php support callback function
+
 ```php
 	array_map(function () {}, $list);
 ```
-
-
-
 
 ### Json
 
@@ -478,15 +468,11 @@ Php support callback function
 	json_decode("{'name': 'json'}") // json to object|array
 	/**
 	 * return object by default
-	 * if you set second parament to true it will return 'Array associative'
-	 * 
+	 * if you set second paramst to true it will return 'Array associative'
+	 *
 	 *@example json_decode("{'name': 'json'}", true);
 	 * */
 ```
-
-
-
-
 
 ### Php Exceptions
 
@@ -496,23 +482,22 @@ Php support callback function
 
 
 	try {
-		
+
 	} catch (Exception $e) {
-		
+
 	} finally {
 
 	}
 ```
 
-
-
 ## OOP
+
 A class is a template for objects, and
 an object is an instance of a class.
 
 ```php
 	/**
-	 * 
+	 *
 	 */
 	class Fruit
 	{
@@ -543,18 +528,18 @@ an object is an instance of a class.
 ```
 
 ### Destructor
-function will automatically called at the end of the script.
+
+funtion will automatically called at the end of the script.
 
 ```php
 	class Cars
 	{
 		function __destruct()
-	    {	
+	    {
 	      echo 'done';
 	    }
 	}
 ```
-
 
 ### Access Modifiers
 
@@ -570,20 +555,17 @@ function will automatically called at the end of the script.
 	}
 ```
 
-
-
 ### Inheritance
+
 ```php
 	class Fruit {}
-	
+
 	class Strawberry extends Fruit {
 
 	}
 
 	final class Cars {} // prevent class inheritance to prevent method overriding
 ```
-
-
 
 ### Class constants
 
@@ -595,16 +577,15 @@ use `self::` to access const variables.
 	class Fruit {
 		const BYE_MESS = 'Bye bro';
 
-		public function bey() 
+		public function byebye()
 		{
 			echo self::BYE_MESS;
 		}
 	}
 ```
 
-
-
 ### Abstract Class
+
 Abstract classes and methods are when the parent class has a named method, but need its child `class(es)` to fill out the task.
 
 ```php
@@ -613,13 +594,11 @@ Abstract classes and methods are when the parent class has a named method, but n
  	}
 ```
 
-
-
 ### Interfaces
 
 Allow you to specify what methods a class should implement.
 
->	when one or more classes use the same interface it is referred to as `polymorphism`
+>     whene one or more classes use the same interface it is referred to as `polymorphism`
 
 ```php
  	interface ChatInterface {
@@ -629,9 +608,8 @@ Allow you to specify what methods a class should implement.
  	class Chat implements ChatInterface {}
 ```
 
-
-
 ### Traits
+
 Declare methods that can be used in multiple classes.
 
 - Can have methods or abstract method
@@ -647,12 +625,10 @@ Declare methods that can be used in multiple classes.
  	}
 ```
 
-
-
 ### Static methods
+
 Static methods can be called directly,
 without creating an instance of the class.
-
 
 ```php
  	class User {
@@ -674,8 +650,6 @@ without creating an instance of the class.
  	}
 ```
 
-
-
 ### Static Properties
 
 ```php
@@ -693,10 +667,9 @@ without creating an instance of the class.
 use `self::` to access static properties inside methods.
 use `parent::` if you want to access it in child class.
 
-
-
 ### Name Spaces
-They allow for better organization by grouping classes
+
+They allow for better oraganization by grouping classes
 that work together to perform a task.
 
 - They allow the same name to be used for more than one class.
@@ -715,8 +688,6 @@ the class needs to have the namespace attached to it.
 	$Login = new Auth\Login() // class inside Auth.
 ```
 
-
 ### php Iterables.
+
 Is any value which can be looped through with a foreach()
-
-
