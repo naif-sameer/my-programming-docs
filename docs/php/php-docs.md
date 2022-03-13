@@ -1,15 +1,23 @@
 # Php docs
 
+## run the server
+
+```php
+php -S localhost:8000
+```
+
 ## basics
 
 ```php
 
-	echo 'Hello world!';
+echo 'Hello world!';
+
+echo "Hi there" . "what's up :)";
 
 
-	/* comments */
-	# comment
-	// comment
+/* comments */
+# comment
+// comment
 ```
 
 ### Variables
@@ -23,12 +31,13 @@
 #### Static
 
 ```php
-	// A static variable exists only in a local function scope, but it does not lose its value when program execution leaves this scope.
-	function test(){
-		static $a = 0;
-		echo $a;
-		$a++;
-	}
+// A static variable exists only in a local function scope, but it does not lose its value when program execution leaves this scope.
+
+function test(){
+	static $a = 0;
+	echo $a;
+	$a++;
+}
 
 ```
 
@@ -36,19 +45,18 @@
 
 ```php
 
-	$mess = 'hello';
+$mess = 'hello';
 
-	function a()
-	{
-	 	echo $GLOBALS['mess'];
-	}
+function a()
+{
+	echo $GLOBALS['mess'];
+}
 ```
 
-#### Constant varibale
+#### Constant variable
 
 ```php
-
-	define(name, 'Ali')
+define(name, 'Ali')
 	// constants are automatically global you can call it from function without global key.
 ```
 
@@ -432,6 +440,13 @@ hold information about
 	session_destroy() // destroy the session
 ```
 
+### Headers
+
+```php
+// redirect with statues code 302
+header('Location: index.php');
+```
+
 ### Filter
 
 ```php
@@ -688,6 +703,48 @@ the class needs to have the namespace attached to it.
 	$Login = new Auth\Login() // class inside Auth.
 ```
 
+### use and namespace
+
+```php
+/* log.php */
+namespace Log;
+function log_name() {}
+
+#use it
+/* index.php */
+use function Log\log_name;
+log_name();
+``
+```
+
 ### php Iterables.
 
 Is any value which can be looped through with a foreach()
+
+## mysql
+
+### connect to db
+
+```php
+// connect to db
+$connection=mysqli_connect("localhost","root","","coding-academy");
+
+
+```
+
+### mysqli query
+
+```php
+$rows=mysqli_query($connection,"select * from books");
+
+
+// get the row data
+while($row=mysqli_fetch_assoc($rows)){
+	$row;
+}
+
+# insert
+$result = mysqli_query($connection, "insert into books values(null,'$_POST[book_name]','$new_file_name','$_POST[book_price]','$_POST[book_details]')");
+
+
+```

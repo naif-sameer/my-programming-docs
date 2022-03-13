@@ -81,7 +81,7 @@ let customerId = <number>cId;
 let customerId = cId as number;
 ```
 
-### funtions
+### function
 
 optional param `y?` should be the last parameters
 
