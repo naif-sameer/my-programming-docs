@@ -41,3 +41,11 @@ or in package.json
   	}
  }	
 ```
+
+## install tailwindcss for vite
+```bash
+# run this command
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+```

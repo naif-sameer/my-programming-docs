@@ -445,6 +445,9 @@ hold information about
 ```php
 // redirect with statues code 302
 header('Location: index.php');
+
+
+header('REFRESH:2;URL=index.php');
 ```
 
 ### Filter
