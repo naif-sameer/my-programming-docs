@@ -1,12 +1,14 @@
 # Tailwindcss
 
 ## install
+
 ```bash
 pnpm i --dev tailwindcss
 npx tailwindcss init
 ```
 
 ## Configure template paths
+
 ```js
 /* tailwind.config.js */
 
@@ -43,9 +45,11 @@ or in package.json
 ```
 
 ## install tailwindcss for vite
+
 ```bash
+
 # run this command
-npm install -D tailwindcss postcss autoprefixer
+pnpm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
 ```
