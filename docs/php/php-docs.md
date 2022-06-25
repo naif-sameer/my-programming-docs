@@ -4,6 +4,10 @@
 
 ```php
 php -S localhost:8000
+
+# sub dir
+php -S localhost:8000 -t public/index.php
+
 ```
 
 ## basics

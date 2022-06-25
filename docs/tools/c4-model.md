@@ -44,7 +44,7 @@ Be wary of using acronyms, especially those related to the business/domain that 
 Start with simple boxes contains the element name, typed technology (if appropriate) and a description/responsibilities.
 
 `lines`
-favour uni-directional lines showing the most important dependenciies or data flow, with an annotaion to be explicit about the purpose ot the line and direction.
+favour uni-directional lines showing the most important dependencies or data flow, with an annotation to be explicit about the purpose ot the line and direction.
 
 >     show both directions when the intents are different.
 >     Beware of hiding the true story.

@@ -185,7 +185,7 @@ Add `.gitignore` file to your project in the same directory that the hidden .git
 
 ## github words
 
-**Remote repository** A link of directory that contains your project work on github website that all team member use to exchange therir changes.
+**Remote repository** A link of directory that contains your project work on github website that all team member use to exchange their changes.
 
 **Clone** A local version of a repository , including all commits and branches from (local or remote) .
 
