@@ -36,13 +36,17 @@
     "readfile",
     "reflog",
     "rsort",
+    "scriptlet",
+    "Scriptlets",
     "setcookie",
+    "stackoverflow",
     "stripslashes",
     "strlen",
     "strpos",
     "strrev",
     "strtotime",
     "strtoupper",
-    "typeof"
+    "typeof",
+    "viewmodel"
   ]
 }
