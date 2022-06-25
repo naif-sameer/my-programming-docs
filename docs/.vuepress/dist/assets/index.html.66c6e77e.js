@@ -1,1 +1,0 @@
-const e={key:"v-744b4c30",path:"/php/",title:"php docs",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"framework",slug:"framework",children:[]}],filePathRelative:"php/index.md",git:{updatedTime:1639858427e3,contributors:[{name:"naif",email:"nayef7138@gmail.com",commits:1}]}};export{e as data};

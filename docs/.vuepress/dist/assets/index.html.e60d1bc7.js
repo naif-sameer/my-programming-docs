@@ -1,1 +1,0 @@
-import{c as e,o as a,a as o,d as s}from"./app.808106a9.js";import{_ as t}from"./plugin-vue_export-helper.21dcd24c.js";const c={},r={id:"vscode-api",tabindex:"-1"},d=o("a",{class:"header-anchor",href:"#vscode-api","aria-hidden":"true"},"#",-1),_=s(" vscode api"),n=[d,_];function i(p,h){return a(),e("h1",r,n)}var m=t(c,[["render",i]]);export{m as default};

@@ -1,1 +1,0 @@
-import{c as e,o as r}from"./app.808106a9.js";import{_ as o}from"./plugin-vue_export-helper.21dcd24c.js";const t={};function a(c,n){return r(),e("p",null,"fix: grammars and word spilling mistake")}var l=o(t,[["render",a]]);export{l as default};
