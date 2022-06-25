@@ -17,11 +17,11 @@ when use `v-text` to bind the data to html it will replace all the content insid
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
       return {
-        name: "Batman",
-        greet: "Hi",
+        name: 'Batman',
+        greet: 'Hi',
       };
     },
   };
@@ -39,10 +39,10 @@ when use `v-text` to bind the data to html it will replace all the content insid
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
       return {
-        greet: "<b> Hi </b>",
+        greet: '<b> Hi </b>',
       };
     },
   };
@@ -80,13 +80,13 @@ when use `v-text` to bind the data to html it will replace all the content insid
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
       return {
         dataId: 3,
         isDisabled: true,
         isOnline: true,
-        themeColor: "red",
+        themeColor: 'red',
       };
     },
   };
@@ -114,7 +114,7 @@ you can use `<template>` to wrap elements
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
       return {
         age: 23,
@@ -150,16 +150,16 @@ you can use `<template>` to wrap elements
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
       return {
-        names: ["Ali", "Ahmed", "Naif"],
+        names: ['Ali', 'Ahmed', 'Naif'],
         list: [
-          { id: 2, title: "Apple" },
-          { id: 3, title: "Orange" },
+          { id: 2, title: 'Apple' },
+          { id: 3, title: 'Orange' },
         ],
         info: {
-          name: "Naif",
+          name: 'Naif',
           age: 20,
           isOnline: true,
         },
@@ -191,16 +191,16 @@ Event like
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
-      return { name: "Batman" };
+      return { name: 'Batman' };
     },
     methods: {
       getName() {
         return this.name;
       },
       greet(event) {
-        alert("Hello");
+        alert('Hello');
       },
     },
   };
@@ -224,9 +224,9 @@ Event like
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
-      return { name: "Batman" };
+      return { name: 'Batman' };
     },
     methods: {
       plus(event) {},
@@ -275,16 +275,16 @@ Event like
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
       return {
-        name: "",
-        message: "",
-        skill: "",
+        name: '',
+        message: '',
+        skill: '',
         jobLocation: [],
         isOnline: true,
         lang: [],
-        country: "",
+        country: '',
       };
     },
     methods: {
@@ -321,10 +321,10 @@ with `@keyup`
 
 <script>
   export default {
-    name: "app",
+    name: 'app',
     data: () => {
       return {
-        name: "",
+        name: '',
       };
     },
   };
@@ -351,7 +351,7 @@ with `@keyup`
 <div v-color.border="2px solid red"></div>
 
 <script>
-  Vue.directive("color", {
+  Vue.directive('color', {
     inseted(el, binding) {
       // value
       el.style.color = binding.value;
@@ -490,7 +490,7 @@ export default {
     heroName: {
       type: string,
       required: true,
-      default: "Super Man",
+      default: 'Super Man',
     },
   },
 };
@@ -547,8 +547,8 @@ The two api provide a way to pass data through the component tree without having
 
 <script>
   export default {
-    name: "Child",
-    inject: ["username"],
+    name: 'Child',
+    inject: ['username'],
   };
 </script>
 ```
@@ -562,8 +562,8 @@ The two api provide a way to pass data through the component tree without having
 </template>
 <script>
   export default {
-    name: "app",
-    emits: ["close"],
+    name: 'app',
+    emits: ['close'],
   };
 </script>
 
@@ -577,7 +577,7 @@ The two api provide a way to pass data through the component tree without having
 
 <script>
   export default {
-    name: "Child",
+    name: 'Child',
     methods: {
       closePoup(name) {
         // name is the args we pass
@@ -613,7 +613,7 @@ send new value to v-model in the parent component.
 
 <script>
   export default {
-    name: "Child",
+    name: 'Child',
     props: {
       modelValue: string,
     },
@@ -652,7 +652,7 @@ send new value to v-model in the parent component.
 
 <script>
   export default {
-    name: "Parent",
+    name: 'Parent',
   };
 </script>
 ```
@@ -688,7 +688,7 @@ send new value to v-model in the parent component.
 
 <script>
   export default {
-    name: "Parent",
+    name: 'Parent',
   };
 </script>
 ```
@@ -712,7 +712,7 @@ send new value to v-model in the parent component.
 
 <script>
   export default {
-    name: "Parent",
+    name: 'Parent',
   };
 </script>
 ```
@@ -794,7 +794,7 @@ A vue components can go through 4 phases
 
 <script>
   export default {
-    name: "App",
+    name: 'App',
     mounted() {
       this.$refs.inputRef.focus();
     },
@@ -860,12 +860,12 @@ The composition api is a feature in vue3 which gives us another way to write our
 **ref**
 
 ```js
-import { ref } from "vue";
+import { ref } from 'vue';
 
 export default {
   setup() {
     // replace data with composition api
-    const username = ref("Naif");
+    const username = ref('Naif');
 
     // if you want to use the value inside setup
     console.log(username.value);
@@ -881,13 +881,13 @@ export default {
 **reactive**
 
 ```js
-import { reactive } from "vue";
+import { reactive } from 'vue';
 
 export default {
   setup() {
     const state = reactive({
-      username: "naif4web",
-      name: "Naif",
+      username: 'naif4web',
+      name: 'Naif',
     });
 
     // if you want to use the value inside setup
@@ -909,13 +909,13 @@ from `reactive` value to `ref`;
 `toRefs` return obj;
 
 ```js
-import { toRefs, reactive } from "vue";
+import { toRefs, reactive } from 'vue';
 
 export default {
   setup() {
     const state = reactive({
-      username: "naif4web",
-      name: "Naif",
+      username: 'naif4web',
+      name: 'Naif',
     });
 
     return toRefs(state);
@@ -927,13 +927,13 @@ export default {
 ### methods
 
 ```js
-import { ref, reactive, toRefs } from "vue";
+import { ref, reactive, toRefs } from 'vue';
 
 export default {
   setup() {
     const count = ref(0);
     const state = reactive({
-      name: "Naif",
+      name: 'Naif',
       age: 20,
     });
 
@@ -953,13 +953,13 @@ export default {
 ### computed
 
 ```js
-import { ref, reactive, toRefs } from "vue";
+import { ref, reactive, toRefs } from 'vue';
 
 export default {
   setup() {
     const state = reactive({
-      firstName: "Naif",
-      lastName: "Sameer",
+      firstName: 'Naif',
+      lastName: 'Sameer',
     });
 
     const fullName = computed(() => {
@@ -977,12 +977,12 @@ export default {
 ### watch with `ref`
 
 ```js
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue';
 
 export default {
   setup() {
-    const f = ref("naif");
-    const l = ref("sameer");
+    const f = ref('naif');
+    const l = ref('sameer');
 
     watch([f, l], (newV, oldV) => console.table(newV, oldV), {
       immediate: true,
@@ -998,13 +998,13 @@ export default {
 >     if you have deep obj you need to clone the object.
 
 ```js
-import { reactive, watch } from "vue";
+import { reactive, watch } from 'vue';
 
 export default {
   setup() {
     const info = reactive({
-      f: "naif",
-      l: "sameer",
+      f: 'naif',
+      l: 'sameer',
     });
 
     watch(info, (n, o) => console.table(n, o), { immediate: true, deep: true });
@@ -1031,17 +1031,17 @@ export default {
 | renderTriggered | onRenderTriggered  |
 
 ```js
-import { reactive, onBeforeMount } from "vue";
+import { reactive, onBeforeMount } from 'vue';
 
 export default {
   setup() {
     const info = reactive({
-      f: "naif",
-      l: "sameer",
+      f: 'naif',
+      l: 'sameer',
     });
 
     onBeforeMount(() => {
-      console.log("before mount");
+      console.log('before mount');
     });
 
     return { info };
@@ -1087,7 +1087,7 @@ if you want to change values the recommend way to edit in the parent.
 <input ref="inputRef" type="text" name="" />
 
 <script>
-  import { onMounted, reactive, ref } from "vue";
+  import { onMounted, reactive, ref } from 'vue';
 
   export default {
     setup() {
@@ -1110,7 +1110,7 @@ if you want to change values the recommend way to edit in the parent.
 ```html
 <script>
   export default {
-    props: ["name", "age"],
+    props: ['name', 'age'],
     setup({ name, age }) {
       console.log(name, age);
     },
@@ -1127,13 +1127,13 @@ if you want to change values the recommend way to edit in the parent.
 </template>
 <script>
   export default {
-    props: ["fName", "lName"],
-    emits: ["call"],
+    props: ['fName', 'lName'],
+    emits: ['call'],
     setup({ fName, lName }, context) {
       const fullName = computed(() => fName + lName);
 
       function sendEvent() {
-        context.emit("call", fullName);
+        context.emit('call', fullName);
       }
 
       return {

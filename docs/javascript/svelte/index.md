@@ -6,12 +6,12 @@
 
 ```html
 <script>
-  let mess = "Hello World";
-  let imgSrc = "https://images.com/cat.png";
-  let alt = "image alt desc";
+  let mess = 'Hello World';
+  let imgSrc = 'https://images.com/cat.png';
+  let alt = 'image alt desc';
 
   // import Component
-  import Card from "./Card";
+  import Card from './Card';
 </script>
 
 <!-- use your component -->
@@ -32,7 +32,7 @@
 </p>
 
 <style>
-  /* style by defalut scoped to the component */
+  /* style by default scoped to the component */
 
   h1 {
     color: red;
@@ -56,70 +56,70 @@
 ## Events
 
 ```html
-<!-- Sbtn.svelte -->
+<!-- SBtn.svelte -->
 
 <!-- Event forwarding -->
 <button on:click>handle the event from the parent</button>
 ```
 
 ```html
-	<!-- Parent.svelte -->
-	<script>
-		import SBtn from './SBtn.svelte';
+<!-- Parent.svelte -->
+<script>
+  import SBtn from './SBtn.svelte';
 
-		let count = 0;
+  let count = 0;
 
-		function incrementCount() {
-			count++;
-		}
+  function incrementCount() {
+    count++;
+  }
 
 
-		// Reactive Declaration
-		$: doubled = count * 3;
+  // Reactive Declaration
+  $: doubled = count * 3;
 
-		// Reactive statement
-		$: console.log(count);
+  // Reactive statement
+  $: console.log(count);
 
-		// group of statement
-		$: {
-			console.log(count);
+  // group of statement
+  $: {
+    console.log(count);
 
-			if (count > 5) {
-				console.log('count is larger than 5');
-			}
-		}
-	</script>
+    if (count > 5) {
+      console.log('count is larger than 5');
+    }
+  }
+</script>
 
-	<h3>{ count }</h3>
+<h3>{ count }</h3>
 
-	<button on:click={incrementCount}>Increment</button>
+<button on:click={incrementCount}>Increment</button>
 
-	<button on:mousemove={e => console.log(e)}>mouse move event</button>
+<button on:mousemove={e => console.log(e)}>mouse move event</button>
 
-	<button on:click|once={() => console.log('run event only once')}>log</button>
+<button on:click|once={() => console.log('run event only once')}>log</button>
 
-	<button on:click|preventDefault={(e) => console.log('run event only once')}>
-		Prevent Default
-	</button>
+<button on:click|preventDefault={(e) => console.log('run event only once')}>
+  Prevent Default
+</button>
 
-	<SBtn on:click={e => console.log(e)} />
+<SBtn on:click={e => console.log(e)} />
 ```
 
 >     Tip
 >
->     - In Array and obj you need to return new referance to make them reactive
+>     - In Array and obj you need to return new reference to make them reactive
 >
->     - You can use inline funtion without any performance issue.
+>     - You can use inline function without any performance issue.
 
 ## props
 
 ```html
 <!-- Card.svelte -->
 <script>
-  export let title = "defalut prop value";
+  export let title = 'default prop value';
 
   // working with html classes
-  let className = "";
+  let className = '';
   export { className as class };
 </script>
 
@@ -129,7 +129,7 @@
 ```html
 <!-- Parent.svelte -->
 <script>
-  import Card from "./Card.svelte";
+  import Card from './Card.svelte';
 </script>
 
 <Card title="Card title" class="card-title" />
@@ -144,15 +144,15 @@
 
 ```html
 <script>
-  let name = "";
+  let name = '';
 
   let isOnline = false;
 
-  let fast = "40%";
+  let fast = '40%';
 
-  let mess = "";
+  let mess = '';
 
-  let iceKind = "";
+  let iceKind = '';
 
   let flavors = [];
 </script>
@@ -176,13 +176,13 @@
 <textarea bind:value="{mess}"></textarea>
 
 <select bind:value="{iceKind}">
-  <option value="choclate">choclate</option>
+  <option value="chocolate">chocolate</option>
   <option value="banana">Banana</option>
 </select>
 
 <!-- select with multiple -->
 <select multiple bind:value="{flavors}">
-  <option value="choclate">choclate</option>
+  <option value="chocolate">chocolate</option>
   <option value="banana">Banana</option>
 </select>
 ```
@@ -194,7 +194,7 @@
   let isDanger = false;
 </script>
 
-<!-- shourthand for
+<!-- shorthand for
 		class={isDanger ? 'danger' : ''}
 	 -->
 <h3 class:danger="{isDanger}"></h3>
@@ -205,13 +205,13 @@
 ```html
 <h2 bind:clientWidth>Dimensions</h2>
 <h2 bind:clientHeight>Dimensions</h2>
-<h2 bind:offsettWidth>Dimensions</h2>
-<h2 bind:offsettHeight>Dimensions</h2>
+<h2 bind:offsetWidth>Dimensions</h2>
+<h2 bind:offsetHeight>Dimensions</h2>
 ```
 
 ### this keyword
 
-Allow you to optain a refernce to rendered elements.
+Allow you to obtain a reference to rendered elements.
 
 ```html
 <!-- Input.svelte -->
@@ -251,7 +251,7 @@ Allow you to optain a refernce to rendered elements.
 <h3>You are above 20</h3>
 
 {#else}
-<h3>Unkonw age</h3>
+<h3>Unknown age</h3>
 
 {/if}
 ```
@@ -263,15 +263,15 @@ Allow you to optain a refernce to rendered elements.
   let cats = [
     {
       id: 1,
-      name: "Aaaa",
+      name: 'Aaaa',
     },
     {
       id: 2,
-      name: "Bbbb",
+      name: 'Bbbb',
     },
     {
       id: 3,
-      name: "Cccc",
+      name: 'Cccc',
     },
   ];
 </script>
@@ -295,7 +295,7 @@ Allow you to optain a refernce to rendered elements.
 
 ```html
 <script>
-  let apiData = fetch("https://ex.com/data.json");
+  let apiData = fetch('https://ex.com/data.json');
 </script>
 
 {#await apiData}
@@ -316,9 +316,9 @@ Allow you to optain a refernce to rendered elements.
 
 ```html
 <script>
-  import TabA from "./TabA.svelte";
-  import TabB from "./TabB.svelte";
-  import TabC from "./TabC.svelte";
+  import TabA from './TabA.svelte';
+  import TabB from './TabB.svelte';
+  import TabC from './TabC.svelte';
 
   let activeTab = TabA;
 </script>
@@ -356,7 +356,7 @@ Allow you to optain a refernce to rendered elements.
 ```html
 <!-- Parent.svelte -->
 <script>
-  import Child from "./Child.svelte";
+  import Child from './Child.svelte';
 </script>
 
 <Child on:close={()=>{}} />
@@ -372,7 +372,7 @@ Allow you to optain a refernce to rendered elements.
 ```html
 <!-- Parent.svelte -->
 <script>
-  import Button from "./Button.svelte";
+  import Button from './Button.svelte';
 </script>
 
 <Button on:close={()=>{}} />
@@ -396,7 +396,7 @@ Allow you to optain a refernce to rendered elements.
 ```html
 <!-- Parent.svelte -->
 <script>
-  import Card from "./Card.svelte";
+  import Card from './Card.svelte';
 </script>
 
 <Card>
@@ -423,7 +423,7 @@ Allow you to optain a refernce to rendered elements.
 ```html
 <!-- Parent.svelte -->
 <script>
-  import Card from "./Card.svelte";
+  import Card from './Card.svelte';
 </script>
 
 <Card>
@@ -446,7 +446,7 @@ Allow you to optain a refernce to rendered elements.
 ```html
 <!-- Parent.svelte -->
 <script>
-  import Card from "./Card.svelte";
+  import Card from './Card.svelte';
 </script>
 
 <Card>
@@ -459,20 +459,20 @@ Allow you to optain a refernce to rendered elements.
 ```html
 <!-- Child.svelte -->
 <script>
-  import { setContext } from "svelte";
+  import { setContext } from 'svelte';
 
-  // it is recomend to use obj insted of string
-  setContext("username-context", "Ahmed");
+  // it is recommend to use obj instead of string
+  setContext('username-context', 'Ahmed');
 </script>
 ```
 
 ```html
 <!-- Parent.svelte -->
 <script>
-  import { getContext } from "svelte";
+  import { getContext } from 'svelte';
 
-  // It is recomend to use obj insted of string
-  let name = getContext("username-context");
+  // It is recommend to use obj instead of string
+  let name = getContext('username-context');
 </script>
 
 <h3>{name}</h3>
@@ -482,15 +482,15 @@ Allow you to optain a refernce to rendered elements.
 
 ```html
 <script>
-  import { onMount, onDestroy, beforeUpdate, afterUpdate, tick } from "svelte";
+  import { onMount, onDestroy, beforeUpdate, afterUpdate, tick } from 'svelte';
 
   /**
-   * if you return a funtion from the callback function, that function will be called when the components is unmounted
+   * if you return a function from the callback function, that function will be called when the components is unmounted
    *
    * - onMount does not render inside a server-side component wheres onDestroy does
    * */
   onMount(() => {
-    console.log("fetch api....");
+    console.log('fetch api....');
   });
 
   // run before the component is unmounted
@@ -511,14 +511,14 @@ Allow you to optain a refernce to rendered elements.
 ```js
 // store/count.js
 
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 export const count = writable(1);
 ```
 
 ```html
 <script>
-  import { count } from "./store/count";
+  import { count } from './store/count';
 
   function increment() {
     count.update((value) => value + 1);
@@ -545,7 +545,7 @@ You can use `$` to subscribe the store without creating new variable
 ```html
 <script>
   // our store should be imported at the top level scope
-  import { count } from "./store/count";
+  import { count } from './store/count';
 </script>
 
 <h3>{$count}</h3>
@@ -553,15 +553,15 @@ You can use `$` to subscribe the store without creating new variable
 
 ### readable
 
-change the store value Dynamicly
+change the store value Dynamically
 
 ```html
 <script>
-  import { readable } from "svelte/store";
+  import { readable } from 'svelte/store';
 
-  let initailValue = new Date();
+  let initialValue = new Date();
 
-  const time = readable(initailValue, function start(set) {
+  const time = readable(initialValue, function start(set) {
     const interval = setInterval(() => {
       set(new Date());
     }, 1000);
@@ -577,12 +577,12 @@ change the store value Dynamicly
 
 ### derived
 
-make a sotre whose value based on other store value
+make a store whose value based on other store value
 
 ```html
 <script>
-  import { derived } from "svelte/store";
-  import conut from "./store/count";
+  import { derived } from 'svelte/store';
+  import count from './store/count';
 
   export const elapsed = derived(time, ($count) => {
     return time + $count;
@@ -596,7 +596,7 @@ make a sotre whose value based on other store value
 
 ```js
 // store/count.js
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 function createCount() {
   const { subscribe, set, update } = writable(0);

@@ -8,8 +8,8 @@ install
 
 ```bash
 
-	# /. mean will add files to this current path without create new folder
-	npx create-next-app my-app /.
+# /. mean will add files to this current path without create new folder
+npx create-next-app my-app /.
 ```
 
 ### folders
@@ -18,20 +18,20 @@ install
 - Don't put your components file inside `pages` folder
 
 ```
-	components/
+components/
 
-	pages/
-		api/
-			index.jsx
-		_app.jsx
-		index.jsx
+pages/
+  api/
+    index.jsx
+  _app.jsx
+  index.jsx
 
-	public/
+public/
 
-	styles/
-		globals.css
+styles/
+  globals.css
 
-	.gitignore
+.gitignore
 ```
 
 ```jsx
@@ -57,8 +57,8 @@ export default MyApp;
 
 ```jsx
 /* _app.jsx */
-import Header from "components/layout/Header";
-import Footer from "components/layout/Footer";
+import Header from 'components/layout/Header';
+import Footer from 'components/layout/Footer';
 
 function MyApp({ Component, PageProps }) {
   return (
@@ -74,7 +74,7 @@ function MyApp({ Component, PageProps }) {
 ### Head Component
 
 ```jsx
-import Head from "next/head";
+import Head from 'next/head';
 export default function About() {
   return (
     <div>
@@ -91,18 +91,18 @@ export default function About() {
 ### Image Component
 
 ```jsx
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function About() {
   return (
     <div>
       <Image
-        src=""
-        alt=""
-        placeholder="blur"
-        height="300"
-        width="200"
-        blurDataUrl=""
+        src=''
+        alt=''
+        placeholder='blur'
+        height='300'
+        width='200'
+        blurDataUrl=''
       />
       About data here....
     </div>
@@ -116,64 +116,61 @@ When a file is added to the `pages` folder in our project,
 It automatically becomes available as a route.
 
 ```
-	pages/
-		index.jsx #===> /
-		about.jsx #===> /about.js
+pages/
+  index.jsx #===> /
+  about.jsx #===> /about.js
 ```
 
 #### Dynamic router
 
 ```
-	pages/
-		blog/
-			index.jsx #===> /blog
-			first.jsx #===> /blog/first
-			[blog].jsx #===> /blog/2
-
+pages/
+  blog/
+    index.jsx #===> /blog
+    first.jsx #===> /blog/first
+    [blog].jsx #===> /blog/2
 ```
 
 we use `[blog].jsx` to create Dynamic router
 
->     if you have dynamic router and file in the same folder
->     the file will be the first executed in the router tree
+::: info
+if you have dynamic router and file in the same folder
+the file will be the first executed in the router tree
+:::
 
 ```jsx
-	/* [blog].jsx */
+/* [blog].jsx */
 
-	import {useRouter} from 'next/router'
+import { useRouter } from 'next/router';
 
-	export function Blog() {
-		const router = useRouter();
+export function Blog() {
+  const router = useRouter();
 
-		// query.blog came from file name
-		const blogId = router.query.blog
+  // query.blog came from file name
+  const blogId = router.query.blog;
 
-		return (
-			<h1>
-				Hello you visit {blogId} page
-			</h1>
-			);
-	}
+  return <h1>Hello you visit {blogId} page</h1>;
+}
 ```
 
 you can use advanced dynamic router by mix files and folders
 
 ```
-	pages/
-		product/
-			[productId]/
-				index.jsx
-				[reviews]/
-					[reviewId].jsx
+pages/
+  product/
+    [productId]/
+      index.jsx
+      [reviews]/
+        [reviewId].jsx
 ```
 
 #### Catch all routes
 
 ```
-	pages/
-		blog/
-			index.jsx
-			[...params].jsx
+pages/
+  blog/
+    index.jsx
+    [...params].jsx
 ```
 
 if you don't want to use `index.jsx` file you can edit
@@ -184,20 +181,20 @@ if you don't want to use `index.jsx` file you can edit
 use `replace` to
 
 ```jsx
-import Link from "next/link";
+import Link from 'next/link';
 
 function Home() {
   return (
     <div>
-      <Link href="/">
+      <Link href='/'>
         <a>Home</a>
       </Link>
 
-      <Link href="/about">
+      <Link href='/about'>
         <a>about us</a>
       </Link>
 
-      <Link href="/blog/3" replace>
+      <Link href='/blog/3' replace>
         <a>blog 3</a>
       </Link>
     </div>
@@ -208,12 +205,12 @@ function Home() {
 if you don't have another child `a` you can use `passHref`
 
 ```jsx
-import Link from "next/link";
+import Link from 'next/link';
 
 function Home() {
   return (
     <div>
-      <Link href="/" passHref>
+      <Link href='/' passHref>
         Home
       </Link>
     </div>
@@ -224,13 +221,13 @@ function Home() {
 #### Navigating programmatically
 
 ```jsx
-import { useRouter } from "next";
+import { useRouter } from 'next';
 
 function Home() {
   const router = useRouter();
   return (
     <div>
-      <button onClick={() => router.push("/home")}>go to home</button>
+      <button onClick={() => router.push('/home')}>go to home</button>
     </div>
   );
 }
@@ -241,8 +238,8 @@ function Home() {
 add and edit `404.jsx` file.
 
 ```
-	pages/
-		404.jsx
+pages/
+  404.jsx
 ```
 
 ### Pre-rendering
@@ -266,7 +263,7 @@ export default function UserList(props) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch("");
+  const data = await fetch('');
 
   return {
     props: {
@@ -276,13 +273,13 @@ export async function getStaticProps() {
 }
 ```
 
-**Not about SG** `sg => server genrate`
+**Not about SG** `sg => server generate`
 
-- SG genrate two files `html` and `json` for each page.
+- SG generate two files `html` and `json` for each page.
 - if you navigate directly to the page route, the html file is served
 - If you navigate to page from another route the page is created client side using the `javascript + json file`
 
-`getStaticProps` resive a context param content `params` object passed by `getStaticPaths`
+`getStaticProps` reside a context param content `params` object passed by `getStaticPaths`
 
 ```jsx
 export async function getStaticProps(context) {
@@ -303,7 +300,7 @@ export async function getStaticPaths() {
   return {
     paths: [
       {
-        params: { postId: "1" },
+        params: { postId: '1' },
       },
     ],
     fallback: false,
@@ -322,10 +319,9 @@ export async function getStaticPaths() {
    _when to used it_
 
 - if your app has a very large number of static pages that depend on data.
--
 
 ```jsx
-import { useRouter } from "next";
+import { useRouter } from 'next';
 
 export default function Post(props) {
   const router = useRouter();
@@ -351,7 +347,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  return { paths: [{ params: { postId: "1" } }], fallback: true };
+  return { paths: [{ params: { postId: '1' } }], fallback: true };
 }
 ```
 
@@ -360,7 +356,7 @@ export async function getStaticPaths() {
 
 #### Incremental Static Regeneration `ISR`
 
-- wiht `ISR`, nextjs allows us to update static pages after you've built your app
+- with `ISR`, nextjs allows us to update static pages after you've built your app
 
 ```jsx
 export async function getStaticProps() {
@@ -390,14 +386,14 @@ use `SWR` react hooks for data fetching
 - Don't call your own api from `getStaticProps` or `getServerProps`
 
 ```
-	pages/
-		api/
-			index.jsx
+pages/
+  api/
+    index.jsx
 ```
 
 ```jsx
 export default function handler(req, res) {
-  res.status(200).json({ name: "Ahmed" });
+  res.status(200).json({ name: 'Ahmed' });
 }
 ```
 
@@ -405,8 +401,8 @@ export default function handler(req, res) {
 
 ```jsx
 export default function handler(req, res) {
-  if (req.method === "POST") {
-    res.status(200).json({ mess: "post added" });
+  if (req.method === 'POST') {
+    res.status(200).json({ mess: 'post added' });
   }
 }
 ```
@@ -416,7 +412,7 @@ export default function handler(req, res) {
 ```
 	api/
 		[postId]/
-			[commontId].jsx
+			[commentId].jsx
 
 ```
 
@@ -431,9 +427,9 @@ export default function handler(req, res) {
 ### catch all api
 
 ```
-	api/
-		[postId]/
-			[[...params]].jsx
+api/
+  [postId]/
+    [[...params]].jsx
 
 ```
 
@@ -477,15 +473,15 @@ export async function getStaticProps(context) {
 ### Absolute imports
 
 ```js
-	/* jsconfig.json */
-	{
-		"compilerOptions": {
-			"baseUrl": ".",
-			"paths": {
-				"@/layout/*": ["components/layout/*"]
-			}
-		}
-	}
+/* jsconfig.json */
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/layout/*": ["components/layout/*"]
+    }
+  }
+}
 ```
 
 ### Redirects
@@ -496,8 +492,8 @@ module.exports = {
   redirects: async () => {
     return [
       {
-        source: "/about",
-        destination: "/",
+        source: '/about',
+        destination: '/',
         permanent: false,
       },
     ];
@@ -515,15 +511,19 @@ module.exports = {
 
 ## Authentication
 
->     Identity (Authentication): verifies who a user is.
+::: info
+`Identity` (Authentication): verifies who a user is.
+:::
 
->     Access (Authorization): verifies what permissions the user has.
+::: info
+`Access` (Authorization): verifies what permissions the user has.
+:::
 
 ### next-auth
 
 ```jsx
-import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import NextAuth from 'next-auth';
+import Providers from 'next-auth/providers';
 
 export default NextAuth({
   providers: [Providers.GitHub({})],
@@ -531,14 +531,14 @@ export default NextAuth({
 ```
 
 ```jsx
-import { signIn, signOut } from "next-auth/client";
+import { signIn, signOut } from 'next-auth/client';
 
 export default function User() {
   return (
     <div>
       <a
         onClick={(e) => {
-          e.prefentDefault();
+          e.preventDefault();
           signIn();
         }}
       >
@@ -567,7 +567,7 @@ function User() {
 ### Next-auth Provider
 
 ```jsx
-import { Provider } from "next-auth/provider";
+import { Provider } from 'next-auth/provider';
 
 function MyApp({ comp, props }) {
   return (
@@ -581,28 +581,27 @@ function MyApp({ comp, props }) {
 ### Server side Authentication
 
 ```jsx
-	import {getSession} from 'next-auth/client';
+import {getSession} from 'next-auth/client';
 
-	export async function getServerSideProps(context) {
-		const session = await getSession(context);
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
 
-		return {
-			props: {
-				session,
-			}
-		}
-	}
+  return {
+    props: {
+      session,
+    }
+  }
+}
 
 
-
-	// on _app.jsx edit Provider to
-	<Provider session={PageProps.session}>
+// on _app.jsx edit Provider to
+<Provider session={PageProps.session}>
 ```
 
 ### Securing pages server side
 
 ```jsx
-import { getSession } from "next-auth/client";
+import { getSession } from 'next-auth/client';
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -610,7 +609,7 @@ export async function getServerSideProps(context) {
   if (!session) {
     return {
       redirect: {
-        destination: "/api/auth/signin?callbackurl=http://localhost:3000/",
+        destination: '/api/auth/signing?callbackurl=http://localhost:3000/',
         permanent: false,
       },
     };
@@ -627,15 +626,15 @@ export async function getServerSideProps(context) {
 ### Securing Api routes
 
 ```jsx
-import { getSession } from "next-auth/client";
+import { getSession } from 'next-auth/client';
 
 export async function handler(req, res) {
   const session = await getSession({ req });
 
   if (!session) {
-    res.status(401).json({ error: "unauthenticated user" });
+    res.status(401).json({ error: 'unauthenticated user' });
   } else {
-    res.status(200).json({ message: "", session });
+    res.status(200).json({ message: '', session });
   }
 }
 ```

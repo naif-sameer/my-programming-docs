@@ -14,7 +14,7 @@ props are `readonly` don't edit the value.
 ```jsx
 const Greet = (props) => <h1> Hello {props.name} </h1>;
 
-<Greet name="Ahmed" />;
+<Greet name='Ahmed' />;
 ```
 
 use `props.children` to add child elements
@@ -36,7 +36,7 @@ function Greet(props) {
   );
 }
 
-<Greet greetHandler={() => alert("Hi")} />;
+<Greet greetHandler={() => alert('Hi')} />;
 ```
 
 ### State on class component
@@ -50,7 +50,7 @@ this.count = 0;
 }
 
 function updateCounter() {
-// update passed on preveiw state.
+// update passed on preview state.
 this.setState(
 (prevState, props) =>
 ({count : prevState.count + 1});
@@ -68,7 +68,7 @@ this.setState(
 
 ```jsx
 function User() {
-  const clickHandler = () => console.log("btn is clicked");
+  const clickHandler = () => console.log('btn is clicked');
 
   return <button onClick={clickHandler} />;
 }
@@ -95,7 +95,7 @@ function User(props) {
 
 ### List Rendering
 
-use `map()` to rednder list of item
+use `map()` to render list of item
 
 ```jsx
 const Items = () => {
@@ -113,7 +113,7 @@ const Items = () => {
 
 ### Lifecycle Methods
 
-1. **Mounting :** when an instance of a components is beging created and insearted into the `DOM`.
+1. **Mounting :** when an instance of a components is begins created and inserted into the `DOM`.
 
 2. **Updating :** when a component is begins `re-rendered` as a result of changes to either its props or state.
 
@@ -141,7 +141,7 @@ const User = () => {
 
 ### Pure Component in a class.
 
-Components will `be re-redndering` if one of its value change otherwise will not `good for performance`.
+Components will `be re-rendering` if one of its value change otherwise will not `good for performance`.
 
 **When use it never mutate the state**. Always return new object the reflects the new state.
 
@@ -166,7 +166,7 @@ const User = () => {
 			<input ref={inputRef} />
 
 			<button onClick={ () => inputRef.focus()}>
-				focus theinput.
+				focus the input.
 			</button>
 		<div>
 	);
@@ -190,13 +190,13 @@ const ref = React.createRef();
 
 ### Portals
 
-render component ouside root div.
+render component outside root div.
 
 ```jsx
 const PortalDemo = () => {
   return ReactDOM.createPortal(
     <div />,
-    document.getElementById("portal-root-el")
+    document.getElementById('portal-root-el')
   );
 };
 ```
@@ -208,7 +208,7 @@ a class component that implements one or both of the lifecycle methods
 - `getDerivedStateFromError` used to render a fallback UI After an error is thrown.
 - `componentDidCatch` used to log the error information
 
-### Higher Oreder Components **HOC**.
+### Higher Order Components **HOC**.
 
 >     Used to share common functionality between components.
 
@@ -264,7 +264,7 @@ const Counter = (props) => {
 
 ### Context
 
-Provides away to pass data through the component tree without having to pass props down manyually at every level.
+Provides away to pass data through the component tree without having to pass props down manually at every level.
 
 ```jsx
 
@@ -308,13 +308,13 @@ you should use `hooks` instead of this way.
 ```jsx
 const [value, setValue] = useState(1);
 
-setValue(30); // not safe if you wnat to update by old value.
+setValue(30); // not safe if you want to update by old value.
 
 setValue((prevState) => prevState + 3); // safe
 ```
 
-When you use object or array. `useState` will not merge automaticly.
-isnted return new instance.
+When you use object or array. `useState` will not merge automatically.
+instead return new instance.
 
 ```jsx
 const [list, setList] = useState([]);
@@ -335,14 +335,14 @@ useEffect(() => {
   // used it to clean event from the dom or clearInterval()
   return () => {};
 }, []);
-// second param is a array its value for conditionaly run effect.
+// second param is a array its value for conditionally run effect.
 // if the values change useEffect will run again.
 ```
 
 ### Context hooks
 
 ```jsx
-import UserContext from "./UserContext";
+import UserContext from './UserContext';
 
 function User() {
   const username = useContext(UserContext);
@@ -360,9 +360,9 @@ const initState = { first: 0 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "increment":
+    case 'increment':
       return { first: state.first + 1 };
-    case "decrement":
+    case 'decrement':
       return { first: state.first - 1 };
 
     default:
@@ -377,7 +377,7 @@ function Counter() {
     <div>
       {count}
 
-      <button onClick={() => dispatch({ type: "increment" })}>
+      <button onClick={() => dispatch({ type: 'increment' })}>
         increment count
       </button>
     </div>
@@ -394,7 +394,7 @@ use this carefully.
 | --------------------------- | ----------------------- | ------------- |
 | Best for                    | Number, String, Boolean | Object, Array |
 | number of state transitions | one or two              | too many      |
-| Related state trasnition    | no                      | Yes           |
+| Related state transition    | no                      | Yes           |
 
 ### useCallback
 
@@ -404,7 +404,7 @@ Is a hook that will return a memorized version of the callback function that onl
 function User() {
   const [age, setAge] = useState(20);
 
-  // callback will cashe the function
+  // callback will cashed the function
   const incrementAge = useCallback(() => setAge(age + 1), [age]);
 
   return <div> {username} </div>;
@@ -413,7 +413,7 @@ function User() {
 
 ### useMemo
 
-cashe the function return.
+cashed the function return.
 
 ```jsx
 function User() {
@@ -438,15 +438,15 @@ function User() {
 
 // useRef with interval
 function U() {
-  const intervlRef = useRef();
+  const intervalRef = useRef();
 
   useEffect(() => {
-    intervlRef.current = setInteval();
+    intervalRef.current = setInterval();
   });
 
   // clear the interval
   function clear() {
-    clearInterval(intervlRef.current);
+    clearInterval(intervalRef.current);
   }
 }
 ```
@@ -455,7 +455,7 @@ function U() {
 
 we used it to share logic
 
->     Alternative to HOCs and rednder props
+>     Alternative to HOCs and render props
 
 **Notes**
 
@@ -473,7 +473,7 @@ function useDocumentTitle(count) {
 export default useDocumentTitle;
 
 /* Counter.jsx */
-import useDocumentTitle from "./useDocumentTitle.jsx";
+import useDocumentTitle from './useDocumentTitle.jsx';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -486,7 +486,7 @@ function Counter() {
 
 ![Image Title](react-render-phase.svg)
 
-Rednder phsase
+Render phase
 
 1. Find all elements flagged for update.
 2. For each flogged components, covert jsx to react element and store the result.
@@ -496,17 +496,17 @@ Rednder phsase
 ### useState and useReducer
 
 - will not `re-render` if it the same value after the initial render.
-- same value after `re-render` react will render that specific component one more time and then bails out from any subsequnt reders.
+- same value after `re-render` react will render that specific component one more time and then bails out from any subsequent renders.
 
 **State Immutability 'object, array'**
-To `re-render` pass new referance.
+To `re-render` pass new reference.
 
-**Avoide Un necessary render by**
+**Avoided Un necessary render by**
 
-1. pass the child as a children prop ex`<Paren> <Child /> </Parent>`
+1. pass the child as a children prop ex`<Parent> <Child /> </Parent>`
 2. use `React.memo()`
 
-### Same Element refernece
+### Same Element reference
 
 - state change? will `re-render`
 - Props change? will not `re-render`

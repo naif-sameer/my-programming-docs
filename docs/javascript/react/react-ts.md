@@ -12,7 +12,7 @@ type GreetProps = {
 
 function Greet(props: GreetProps) {}
 
-// props with objct
+// props with object
 type PersonProps = {
   name: {
     first: string;
@@ -28,9 +28,9 @@ type PersonListProps = {
   }[];
 };
 
-// specifc the param value
+// specific the param value
 type StatusProps = {
-  state: "loading" | "success" | "error";
+  state: 'loading' | 'success' | 'error';
 };
 
 // if the child is just a string
@@ -39,7 +39,7 @@ type HeadingProps = {
 };
 
 // if the child is a react element
-type MolduleProps = {
+type ModuleProps = {
   children: React.ReactNode;
 };
 
@@ -75,11 +75,11 @@ useState<AuthUser>({} as AuthUser);
 type CounterState = { count: number };
 
 type UpdateAction = {
-  type: "increment" | "decrement";
+  type: 'increment' | 'decrement';
   payload: number;
 };
 
-type ResetAction = { type: "reset" };
+type ResetAction = { type: 'reset' };
 
 type CounterAction = UpdateAction | ResetAction;
 
@@ -94,7 +94,7 @@ type PrivateProps = {
   Component: React.ComponentType;
 };
 
-// type asscenation
+// type assentation
 type ListProps<T> = {
   item: T[];
   onClick: (value: T) => void;
@@ -126,13 +126,13 @@ type RandomNumberProps = PositiveNumber | NegativeNumber;
 ### Template Literals and exclude
 
 ```tsx
-type HorizontalPosition = "left" | "center" | "right";
-type VerticalPosition = "top" | "center" | "bottom";
+type HorizontalPosition = 'left' | 'center' | 'right';
+type VerticalPosition = 'top' | 'center' | 'bottom';
 
 type ToastProps = {
   position:
-    | Exclude<`${HorizontalPosition} - ${VerticalPosition}`, "center-center">
-    | "center";
+    | Exclude<`${HorizontalPosition} - ${VerticalPosition}`, 'center-center'>
+    | 'center';
 };
 ```
 
@@ -140,7 +140,7 @@ type ToastProps = {
 
 ```tsx
 type ButtonProps = {
-  variant: "primary" | "secondary";
+  variant: 'primary' | 'secondary';
   children: string;
-} & Omit<React.ComponentProps<"button">, "children">;
+} & Omit<React.ComponentProps<'button'>, 'children'>;
 ```

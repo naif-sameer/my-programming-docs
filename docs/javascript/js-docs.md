@@ -7,8 +7,8 @@
 Must start with [letter, under score, $]
 
 ```js
-var name = "value";
-let skills = ["value", "value"];
+var name = 'value';
+let skills = ['value', 'value'];
 const age = 20;
 ```
 
@@ -69,11 +69,11 @@ There can be only a single result or error.
 
 ```js
 let promise = new Promise((resolve, reject) => {
-  resolve("value"); // if the job finished successfuly.
+  resolve('value'); // if the job finished successfuly.
 
   //or
 
-  reject("error"); // if an error occurred.
+  reject('error'); // if an error occurred.
 });
 ```
 
@@ -108,27 +108,27 @@ Promise
 ### Notes
 
 1. Call Stack
-	+ Mechanism to make interpreter track your call.
-	+ when you call a function its added to the stack.
-	+ when function executed its remove from the stack.
-	+ the interpreter continue calling from the last point.
-	+ call stack decked web api and leave it to the browser to handle it.
+   - Mechanism to make interpreter track your call.
+   - when you call a function its added to the stack.
+   - when function executed its remove from the stack.
+   - the interpreter continue calling from the last point.
+   - call stack decked web api and leave it to the browser to handle it.
 2. Web api
-	- Methods available from Environment `Browser`
-	- when complete it add the callback to the callback queue.
+   - Methods available from Environment `Browser`
+   - when complete it add the callback to the callback queue.
    - Mechanism to make interapreter track your call.
    - when you call a function its added to the stack.
    - when function executed its remove from the stack.
    - the interpreter continune calling from the last point.
    - call stack detct web api and leave it to the browser to handle it.
-2. Web api
+3. Web api
    - Methods available from Enviroment `Browser`
    - when complete it add the callback to the callback queue.
-3. Event loop
+4. Event loop
    - wait the call stack to finish.
    - get callback from callback queue.
    - add callback to call stack.
-4. Callback queue.
+5. Callback queue.
    - function called and do the task.
    - action complete.
    - another function called
@@ -138,7 +138,7 @@ Promise
 Usually we apply bind to fix `this` for an object method. so that we can pass it somewhere. like in setTimeout.
 
 ```js
-let user = { name: "ali" };
+let user = { name: 'ali' };
 
 function log(param) {
   console.log(this.name);
@@ -187,7 +187,7 @@ Object.preventExtensions(obj) // forbids the addition of new properties to the o
 
 ```js
 let user = {
-  _name: "",
+  _name: '',
   get name() {
     return this._name;
   },
@@ -196,7 +196,7 @@ let user = {
   },
 };
 
-user.name = "Naif";
+user.name = 'Naif';
 console.log(user.name);
 ```
 
@@ -222,7 +222,7 @@ Object.hasOwnProperty(key)
 
 ```js
 class Car {
-  _name = "";
+  _name = '';
 
   constructor() {}
 
@@ -230,7 +230,7 @@ class Car {
 
   // computed name [...]
   // dynamick name for the methods
-  ["hi" + "by"]() {}
+  ['hi' + 'by']() {}
 
   // getter and setter
   get name() {
@@ -241,8 +241,8 @@ class Car {
     this._name = value;
   }
 
-	// making bound methods with class useful if you use
-	// setTimeout and you want to bind `this`
+  // making bound methods with class useful if you use
+  // setTimeout and you want to bind `this`
   // making bound methods with class usefull if you use
   // setTimeout and you want to bind `this`
 
@@ -275,7 +275,7 @@ Usuallu, static methods are used to implement functions that belong to the class
 
 ```js
 class User {
-  static version = "3.4.5";
+  static version = '3.4.5';
   static remove(id) {}
 }
 
@@ -344,7 +344,7 @@ try {
 ```js
 let user = {
   // properties
-  name: "Naif",
+  name: 'Naif',
 
   // methods
   getName() {
@@ -355,7 +355,7 @@ let user = {
 // Accessing object properties
 user.name; // dot notaion
 
-user["name"]; // bracket notation
+user['name']; // bracket notation
 
 // Accessing object methdos
 user.getName();
@@ -365,13 +365,13 @@ user.getName();
 
 ```js
 let user = new Object();
-user.name = "Naif";
+user.name = 'Naif';
 ```
 
 3. With `Object.create()`
 
 ```js
-let user = { name: "Naif" };
+let user = { name: 'Naif' };
 
 let admin = Object.create(user);
 ```
@@ -379,7 +379,7 @@ let admin = Object.create(user);
 4. With `Object.assign()`
 
 ```js
-let user = { name: "Naif" };
+let user = { name: 'Naif' };
 
 let admin = Object.assign({}, user); // assign('target obj', 'src obj');
 ```
@@ -403,7 +403,7 @@ function Phone(serial, color) {
   this.getInfo = () => this.serial + this.color;
 }
 
-let phone = new Phone(12345, "red");
+let phone = new Phone(12345, 'red');
 
 // check if it instance from the function contructor
 console.log(phone instanceof Phone);
@@ -425,9 +425,9 @@ U.prototype.getName = () => {};
 
 // Extend constructor features
 // don't use this in production code.
-String.prototype.hi = () => "hi";
+String.prototype.hi = () => 'hi';
 
-console.log("some text".hi());
+console.log('some text'.hi());
 ```
 
 ### Meta data
@@ -437,11 +437,11 @@ console.log("some text".hi());
 
 ```js
 // defineProperty(obj, prop, descriptor)
-let obj = Object.defineProperty({}, "name", {
+let obj = Object.defineProperty({}, 'name', {
   writable: false, // edit it
   enumerable: false, // loop it
   configurable: false, // delete or configut it
-  value: "Naif",
+  value: 'Naif',
 });
 
 let obj = Object.defineProperties(
@@ -451,7 +451,7 @@ let obj = Object.defineProperties(
       writable: false,
       enumerable: false,
       configurable: false,
-      value: "Naif",
+      value: 'Naif',
     },
     age: {
       /*...*/
@@ -548,11 +548,11 @@ class User {
 ### Array
 
 ```js
-Array.of("element to create the array")
+Array.of('element to create the array')
 
   .from(Iterable, [mapFnuction], [this])
 
-  .fill(value, "start default 0", "end")
+  .fill(value, 'start default 0', 'end')
 
   .find((e) => {})
 
@@ -565,9 +565,9 @@ Array.of("element to create the array")
 
 ```js
 // iterable any element we can loop it. like string.
-let setArr = new Set("iterable");
+let setArr = new Set('iterable');
 
-setArr.add("value").delete("value").has("value").size().clear();
+setArr.add('value').delete('value').has('value').size().clear();
 ```
 
 ### Map
@@ -602,7 +602,7 @@ let symbol = Symbol();
 // Symbol('lable') add the param for debuging only
 
 // search in global Symbol if it found will acsses it, if not found will create new one.
-let mySymbol = Symbol.for("testing");
+let mySymbol = Symbol.for('testing');
 
 console.log(Symbol.keyFor(mySymbol)); // testing
 
@@ -647,7 +647,7 @@ arr.forEach((currentValue, index, array) => {
 3. check for done. if its `true` exit the loop.
 
 ```js
-let name = "Naif";
+let name = 'Naif';
 
 let iterator = name[Symbol.iterator]();
 
@@ -730,7 +730,7 @@ let a = 3;
 export { a as rank };
 
 /* app.js */
-import { admin } from "./admin.js";
+import { admin } from './admin.js';
 
-import * as admin from "./admin.js";
+import * as admin from './admin.js';
 ```
