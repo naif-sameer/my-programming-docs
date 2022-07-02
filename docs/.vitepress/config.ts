@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+  base: '/programming-docs/',
   lang: 'en-US',
   title: 'Naif docs 🚀',
   description: 'Naif sameer web tools and libraries docs.',
