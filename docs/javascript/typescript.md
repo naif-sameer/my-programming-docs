@@ -222,3 +222,9 @@ let strArr = getArray<string>(['Mario', 'Naif']);
   }
 }
 ```
+
+<style>
+.vp-doc .header-anchor {
+  opacity: 1;
+}
+</style>

@@ -1,14 +1,25 @@
 # Hello to my docs files
 
+## [css](css/index)
+
+- [tailwindcss](css/tailwindcss)
+
+## [javascript](javascript/)
+
+- [react](javascript/react/)
+  - [nextjs](javascript/react/nextjs)
+  - [react with typescript](javascript/react/react-ts)
+- [svelte](javascript/svelte/)
+- [vuejs](javascript/vuejs/)
+- [typescript](javascript/typescript)
+
 ## [php](php/)
 
-- [php-docs](php/php-docs)
-- [laravel](php/laravel.md)
-- [laravel-api](php/laravel-api.md)
-- [laravel-command-line](php/laravel-command-line.md)
+- [laravel](php/laravel)
+- [laravel-api](php/laravel-api)
 
-## [css](css/index.md)
-
-### [tailwindcss](css/tailwindcss.md)
-
-## [javascript](javascript/index.md)
+<style>
+.vp-doc .header-anchor {
+  opacity: 1;
+}
+</style>

@@ -13,6 +13,7 @@
     "feof",
     "fgets",
     "filesize",
+    "floatval",
     "fname",
     "fopen",
     "forelse",

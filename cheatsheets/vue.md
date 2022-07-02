@@ -1,18 +1,6 @@
 # Vuejs
 
----
-
-title: Vue.js
-category: JavaScript
-layout: 2017/sheet
-updated: 2019-12-26
-weight: -10
-intro: |
-[Vue.js](https://vuejs.org/) is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.
-
----
-
-{%raw%}
+[[toc]]
 
 ## Expressions
 
@@ -378,17 +366,3 @@ See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
   <p slot="footer">Contact info</p>
 </app-layout>
 ```
-
-{: data-line="2,3,4"}
-
-See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
-
-## Also see
-
-- [Vue CLI](https://cli.vuejs.org/) _(cli.vuejs.org)_
-- [Vue Router](https://router.vuejs.org/) _(router.vuejs.org)_
-- [Vue DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) _(chrome.google.com)_
-- [Nuxt.js](https://nuxtjs.org/) _(nuxtjs.org)_
-- [Vue.js v1.0.28 cheatsheet](vue@1.0.28/) _Legacy version_
-
-{%endraw%}

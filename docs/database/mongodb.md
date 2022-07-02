@@ -22,7 +22,7 @@ Stands for Binary JSON, which is a binary-coded serialization of JSON-like docum
 
 mongodb stores data records as BSON documents, which are simply called documents.
 
-```bson
+```js
 {
 	_id: ObjectId('398948384989f9090duf09uf09du9df'),
 	title: 'my title'

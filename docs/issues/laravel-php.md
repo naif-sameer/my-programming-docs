@@ -8,4 +8,14 @@ This is a known issue and the workaround suggestion as per the following Github 
 You should send POST and set \_method to PUT (same as sending forms) to make your files visible
 ::
 
-[stackoverflow](https://stackoverflow.com/a/50691997/19299063)
+[source](https://stackoverflow.com/a/50691997/19299063)
+
+## SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT
+
+if you save non-json into `$table->json('my-column')` field this error occurred like this:
+
+```php
+Address::create([
+  "name"=>json_encode($request->input('name'))
+]);
+```

@@ -28,7 +28,7 @@ when use `v-text` to bind the data to html it will replace all the content insid
 </script>
 ```
 
-### Bindig html
+### Binding html
 
 **Note** Don't trust user input
 
@@ -771,15 +771,15 @@ A vue components can go through 4 phases
 4. Unmounting `beforeUnmount`, `unmounted()`
 5. MISC `activated` `deactivated()`, `renderTracked()`, `renderTriggered()`
 
-| hooks                              | describtion                                                                |
+| hooks                              | description                                                                |
 | ---------------------------------- | -------------------------------------------------------------------------- |
 | beforeCreate                       | Can't use data, computed , watchers, and methods                           |
 | created                            | Best place for api call                                                    |
-| beforeMount, mounted               | should be use for modifed dom a possible use case is focusing an input     |
+| beforeMount, mounted               | should be use for modified dom a possible use case is focusing an input    |
 | beforeUpdate                       | used to remove event listener before delete dom                            |
 | updated                            | Triggered when a reactive property `data`, `computed` change or re-renders |
 | beforeUnmount                      | component is about to ve removed                                           |
-| unmouneted                         | component is removed from the dom                                          |
+| unmounted                          | component is removed from the dom                                          |
 | activated, deactivated             | keep a live component use when working with dynamic components             |
 | renderTracked(), renderTriggered() | useful for debugging                                                       |
 

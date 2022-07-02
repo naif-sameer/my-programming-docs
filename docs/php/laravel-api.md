@@ -1,6 +1,6 @@
 what is REST?
 
-> **Re**presentational **S**tate **T**ransfer
+> **Re**presentational **S**tate Transfer
 
 Put
 
@@ -30,7 +30,7 @@ PATCH
 
 ### 3xx
 
-> Tesll the client about redirections
+> Tesll the client about redirection
 
 #### 301
 
