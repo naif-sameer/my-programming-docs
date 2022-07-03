@@ -1,0 +1,50 @@
+@mixin breakpoints($point) {
+  @if $point == sm {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $point == only-md {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+}
+
+@mixin p($value) {
+  padding: $value;
+}
+@mixin pt($value) {
+  padding-top: $value;
+}
+@mixin ps($value) {
+  padding-inline-start: $value;
+}
+@mixin pe($value) {
+  padding-inline-end: $value;
+}
+@mixin pb($value) {
+  padding-bottom: $value;
+}
+
+%card {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  @include breakpoints(sm) {
+    font-size: 2rem;
+  }
+
+  @include p(5rem);
+  @include pt(5rem);
+  @include ps(2rem);
+  padding: {
+    top: 3rem;
+    left: 4rem;
+  }
+}

@@ -96,7 +96,7 @@ $primary-color: #ddd;
 }
 
 .card {
-  @extend .base-box;
+  @extend %base-box;
   color: red;
 }
 ```
