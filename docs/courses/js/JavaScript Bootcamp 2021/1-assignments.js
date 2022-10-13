@@ -46,3 +46,31 @@ document.write('Iam In Page');
 
 // console.log('Iam In Console');
 // document.write('Iam In Page');
+
+/***********
+ * 010 to 017
+ ************/
+
+/*********** 1 ***********/
+let numOne = 10;
+let numTwo = 20;
+
+console.log(numOne + '' + numTwo);
+console.log(typeof (numOne + '' + numTwo));
+
+console.log(`${numOne}${numTwo}`);
+console.log(typeof `${numOne}${numTwo}`);
+
+console.log(numOne + '\n' + numTwo);
+
+console.log(`${numOne}
+${numTwo}`);
+
+/*********** 3 ***********/
+console.log("`I'm In \n\\\\ \nLove \\\\ \"\"\" '''\n++ With ++\n\\" + '"""\\"""\n""Javascript""``');
+
+/*********** 4 ***********/
+let a = 21;
+let b = 20;
+
+console.log(`_${`${a}_${b}`.repeat(4)}_`); // _21_2021_2021_2021_20_

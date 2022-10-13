@@ -98,3 +98,39 @@ console.log(true, false);
 // undefined and null
 console.log(undefined, null);
 ```
+
+## 011 – Variables Introduction
+
+```js
+var user = 'Naif';
+```
+
+id and global variable
+[Named access on the window object](https://html.spec.whatwg.org/multipage/window-object.html#named-access-on-the-window-object)
+
+## 012 – Identifiers Name Conventions And Rules
+
+## 013 – Var, Let, Const Compare
+
+## 014 – String Syntax And Character Escape Sequences
+
+```js
+console.log('Hello "Naif" ! \\ ');
+```
+
+`\\`
+`\n` new line
+
+## 015 – Concatenation
+
+```js
+console.log('hi' + 'there'---);
+```
+
+## 016 – Template Literals (Template Strings)
+
+```js
+console.log(`${200 * 300}`);
+```
+
+## 017 – Variables And Concatenation Challenge
